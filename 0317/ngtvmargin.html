@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      h1,
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .l_wrapper {
+        box-shadow: inset 0 0 10px red;
+        /* width auto는 가득차는건 좋은데, 너무커. 작아질 순 있고, 커지다가 960에서 걸린다. */
+        max-width: 960px;
+        margin: 100px auto;
+      }
+      .l_wrapper h1 {
+        margin-bottom: 20px;
+      }
+      .section-timeline {
+        margin: 0 -10px;
+        position: relative;
+      }
+
+      .section-timeline li {
+        box-shadow: inset 0 0 5px blue;
+        width: 50%;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+
+      .section-timeline li:nth-child(even) {
+        margin-left: auto;
+        margin-top: -40px;
+        margin-bottom: -40px;
+      }
+
+      .section-timeline::before {
+        content: "wow";
+        background-color: red;
+        /* relative는 부모태그 .section-timeline에 줬음. */
+        position: absolute;
+        /* 각 0값들은 끝까지 늘리겠다~ */
+        left: 0;
+        right: 0;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+        /* 네거티브 활용 */
+        margin: 0 auto -40px;
+      }
+
+      .year {
+        background-color: aquamarine;
+        padding: 20px;
+        min-height: 100px;
+      }
+
+      @media (max-width: 800px) {
+        /* 위에 even 포함 된 점수 높은 애가 있어서.. 안 먹힘 */
+        .section-timeline li,
+        .section-timeline li:nth-child(even) {
+          /* width50%에서 벗어나줘 auto랑 같은 말 */
+          width: initial;
+          /* 미디어 커리 위에 네거티브 마진 값 없애기 위해 4변값 다 넣어줌. */
+          margin: 0 0 30px 0;
+        }
+      }
+    </style>
+    <title>veam</title>
+  </head>
+  <body>
+    <div class="l_wrapper">
+      <section class="section">
+        <h1>CSS TIMELINE</h1>
+        <ol class="section-timeline">
+          <li>
+            <div class="year">2022</div>
+          </li>
+          <li>
+            <div class="year">2021</div>
+          </li>
+          <li>
+            <div class="year">2020</div>
+          </li>
+          <li>
+            <div class="year">2019</div>
+          </li>
+          <li>
+            <div class="year">2018</div>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>

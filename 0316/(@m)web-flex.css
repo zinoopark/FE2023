@@ -1,0 +1,205 @@
+/* layout */
+.container {
+  display: flex;
+  box-shadow: inset 0 0 10px #444;
+}
+.container .section-text {
+  flex-grow: 1;
+  box-shadow: inset 0 0 10px #444;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  /* 변동값 20 20 14 */
+  gap: 20px;
+}
+
+@media (min-width: 1200px) {
+  .container .container2 {
+    /* 1200이상에선 486길이를 유지해. 그 이하론 작아지지마,,*/
+    flex-basis: 486px;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 1199px) {
+  .container {
+    /* row가 기본값이니까. container를 column해준다. 위 section-text와 아래 container2를 콜룸화.*/
+    flex-direction: column;
+    /* 변동값 60 40 */
+    gap: 60px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .container2 {
+    /* 아래 container2는 이 구간에서 가로 정렬돼야하는 박스. */
+    flex-direction: row;
+  }
+  .container2 .link1,
+  .container2 .link2 {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  여기서 미디어 쿼리 769 ~ 1200 디렉션 로우 준 뒤,
+  디렉션을
+    따로
+    column안해주는
+    것은
+    그
+    윗단계에서
+    이미
+    로우
+    였기
+    때문에
+    상속받는
+    걸로
+    해줬기
+    떄문.
+    .container2 {
+    /* 변동값 20 20 14 */
+    gap: 14px;
+  }
+}
+
+/* style */
+.container {
+  width: 1200px;
+  /* 반응형 작아질수록 왼오 여백 30씩주는 값 참고로 width는 1200이 최대임 */
+  max-width: calc(100% - 60px);
+  min-width: 400px;
+}
+
+.section-text h1 {
+  /* 미디어쿼리 줄땐 변동값 적어두기 변동값 70 70 36 */
+  color: #121314;
+  font-weight: normal;
+  font-size: 70px;
+}
+
+.section-text p {
+  color: #47494d;
+  /* 변동값 20 18 14 */
+  font-size: 20px;
+  /* 변동값 20 20 14 */
+  margin-top: 20px;
+}
+
+.link1,
+.link2 {
+  border-radius: 20px;
+  color: white;
+  /* 카드를 비율로 조절하자. */
+  aspect-ratio: 486/ 280;
+  /* 변동값 40 30 30 40 / 30 20 20 30 / 30 20 20 30 */
+  padding: 40px 30px 30px 40px;
+  /* 이렇게 플렉스 주면 패딩까지 쭉 밀려남 콜룸 방향, 비트윈 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 이건 바로가기(span태그)에만 따로 align-self줘야됨. */
+  /* align-items: end; */
+}
+
+.link1 {
+  /* contain은 잘리고 공간 남기도함. cover는 잘리지 않고 꽉채움 */
+  background: url(img/weniv1.svg) no-repeat 0 0 / cover;
+}
+
+.link2 {
+  /* contain은 잘리고 공간 남기도함. cover는 잘리지 않고 꽉채움 */
+  background: url(img/weniv2.svg) no-repeat 0 0 / cover;
+}
+
+.link1 strong,
+.link2 strong {
+  font-size: 30px;
+  /* 변동값 30 24 20 */
+}
+.link1 span,
+.link2 span {
+  /* 자기 자신만. 끝으로. align-items는 컨테이너에 주는 값이고, */
+  align-self: flex-end;
+}
+
+/* 가상요소 활용 화살표 */
+.go-after::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  /* background: royalblue; */
+  border: 1px solid #fff;
+  border-width: 1px 1px 0 0;
+  transform: rotate(45deg);
+  margin-left: 0.2em;
+  margin-bottom: 0.1em;
+}
+
+/* 백그라운드 이미지 활용 */
+.go-bg {
+  padding-right: 1.1em;
+  background: url(img/stroke.svg) no-repeat right / contain;
+}
+
+@media (max-width: 1200px) {
+  .section-text p {
+    /* 변동값 20 18 14 */
+    font-size: 18px;
+  }
+
+  .link1,
+  .link2 {
+    /* 변동값 
+		40px 30px 30px 40px
+		30px 20px 20px 30px
+		30px 20px 20px 30px
+	 */
+    padding: 30px 20px 20px 30px;
+  }
+
+  .link1 strong,
+  .link2 strong {
+    /* 변동값 30 24 20 */
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-text h1 {
+    /* 변동값 70 70 36 */
+    font-size: 36px;
+  }
+
+  .section-text p {
+    /* 변동값 20 18 14 */
+    font-size: 14px;
+    /* 변동값 20 20 14 */
+    margin-top: 14px;
+  }
+
+  .link1 strong,
+  .link2 strong {
+    /* 변동값 30 24 20 */
+    font-size: 20px;
+  }
+}
+
+/* 820이 넘치면  */
+@media (min-height: 820px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-height: 819px) {
+  .container {
+    margin: 40px auto;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <style>
+      textarea {
+        width: 100%;
+        resize: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <form method="post">
+      <input type="" />
+      <button type="submit">제출</button>
+    </form>
+
+    <form method="get">
+      <input type="text" />
+      <button type="submit">제출</button>
+    </form> -->
+
+    <!-- 라벨을 id로 연결했고, 아이디란 글자를 치면 input으로 커서 자동으로 이동 -->
+
+    <label for="user-id">아이디</label>
+    <input type="text" id="user-id" required />
+    <button>제출</button>
+    <fieldset>
+      <legend>제목</legend>
+      <label> <input type="checkbox" />요리해먹자 </label>
+    </fieldset>
+
+    <label for="lunch">오점메</label>
+    <select id="lunch">
+      <option value="lunch1">밥</option>
+      <option value="lunch2">김치</option>
+      <option value="lunch3">치킨</option>
+      <option value="lunch4">생선</option>
+    </select>
+    <div>
+      <textarea placeholder="써주세요." cols="10" rows="3">이런</textarea>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 | 두근두근 비밀일기</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: wheat;
+      }
+      .box {
+        width: 500px;
+        margin: 40px auto;
+        text-align: center;
+      }
+      .id label {
+        display: block;
+        font-size: 14px;
+      }
+      .pw label {
+        display: block;
+        font-size: 14px;
+      }
+      .id-box {
+        border: none;
+        border-bottom: 1px solid grey;
+      }
+      .a11y-hidden {
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="logo.png" alt="" />
+      <h2>로그인</h2>
+
+      <div class="id">
+        <label>이메일</label>
+        <input class="id-box" type="email" />
+      </div>
+
+      <div class="pw">
+        <label>비밀번호</label>
+        <input class="pw-box" type="password" />
+      </div>
+
+      <button>로그인</button>
+      <footer>Copyrigt 2023, WENIV All rights reserved.</footer>
+    </div>
+  </body>
+</html>

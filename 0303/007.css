@@ -1,0 +1,33 @@
+body{
+    color:#fff;
+    font-size:40px;
+  }
+  p{
+    width:100px;
+    height:100px;
+    line-height:100px;
+    text-align:center;
+  }
+  .a{
+    background:salmon;
+    margin:20px;
+  } 
+  
+  .b{
+    background:slateblue;
+    margin: 30px 20px;
+  }
+  
+  div{
+    background:skyblue;
+  }
+  
+  .c{
+    background:seagreen;
+    margin:20px;
+  }
+
+  /* 이게 핵심 */
+  .wrap{
+    overflow: hidden;
+  }

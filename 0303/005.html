@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스</title>
+    <style>
+        li{
+            list-style: none;
+            padding: 0;
+        }
+        ul::after{
+            content: ']';
+        }
+    li::before{
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: blue;
+    }
+    
+    li::after{
+        content: '>';
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>안녕하세요</li>
+        <li>네안녕하세요</li>
+    </ul>
+
+</body>
+</html>

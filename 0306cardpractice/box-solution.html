@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title name</title>
+    <style> 
+    div{
+      width: 100px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    /* 
+    div:not(:first-child){
+      margin-top: 10px;
+    } */
+    /* div ~ div {
+        margin-top: 10px;
+      } */
+      div{
+        margin: 20px auto;
+      }
+
+    .box1{
+      background: #343f50;
+      color: white;
+      /* 이너쉐도우인듯 */
+      box-shadow: inset 4px 4px #4a5568;
+      border: 5px solid black;
+    }
+
+    /* background-clip 이용 */
+    .box2{
+      color: white;
+      border-radius: 24px;
+      background: linear-gradient(90deg, rgba(155,32,255,1) 0%, rgba(0,134,255,1) 100%);
+      border: 4px dashed red;
+      background-clip: padding-box;
+    }
+
+    /* 가상요소 + position이용 */
+    .box22{
+      color: white;
+      border-radius: 24px;
+      background: linear-gradient(90deg, rgba(155,32,255,1) 0%, rgba(0,134,255,1) 100%);
+      border: 4px dashed red;
+      background-clip: padding-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box22::after{
+      content: '';
+      background: linear-gradient(90deg, rgba(155,32,255,1) 0%, rgba(0,134,255,1) 100%);
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    </style>
+</head>
+<body>
+  <div class="box1">hello🖐️</div>
+  <div class="box2">hello🖐️</div>
+  <div class="box22">hello🖐️</div>
+  <div class="box3">hello🖐️</div>
+</body>
+</html>

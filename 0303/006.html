@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델</title>
+    <style>
+    div, span{
+        background-color: blueviolet;
+        padding: 20px;
+        margin: 20px auto;
+        border: 10px solid royalblue;
+        box-sizing:border-box;
+    }
+    div{
+        width: fit-content;
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* 오른쪽에 딱붙음 */
+    div:nth-child(2){
+        margin:auto 0 auto auto; 
+    }
+    span{
+        padding: 20px;
+        margin: 20px;
+        border: 10px solid rosybrown;
+
+    }
+    </style>
+</head>
+<body>
+    <div>
+        안녕하세요
+    </div>
+    <div>
+        안녕하세요
+    </div>
+
+    <span>안녕하세요</span>
+    <span>안녕하세요</span>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <style>
+      .box{
+        width: 620px;
+        height: 800px;
+        background-color: black;
+      }
+      header{
+        width: 600px;
+        height: 100px;
+        background-color: aqua;
+      }
+      article{
+        width: 400px;
+        height: 500px;
+        background-color: rgb(162, 93, 228);
+        /* float: left; */
+      }
+
+/* 
+      section::after{
+        content:'';
+        display:block;
+        clear:;
+      } */
+      aside{
+        width: 200px;
+        height: 500px;
+        background-color: blue;
+        float: right;
+
+      }
+
+      footer{        
+        width: 600px;
+        height: 100px;
+        background-color: rgb(255, 0, 183);
+      }
+    </style>
+</head>
+<body>
+  <div class="box">
+  <header></header>
+
+    <section>
+      <article>
+      </article>
+    </section>
+
+    <aside></aside>
+    <footer></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+header {
+  margin: 0;
+}
+
+header {
+  background: white;
+}
+
+.header-wrap {
+  width: 1224px;
+  margin: auto;
+  padding: 22px 0;
+}
+
+header .btn-logo {
+  height: 75px;
+}
+header .btn-join {
+  display: block;
+  float: right;
+  padding: 1em 1em 1em 2.4em;
+  text-decoration: none;
+  color: #5a6a72;
+  background: url(../img/icon-join.svg) no-repeat 0 center / 2em;
+}
+
+main {
+  width: 392px;
+  /* 가로에 대해서만 할거기 때문에 position말고 마진오토 이거 form에서 시작된 주석임 */
+  margin: 71px auto;
+}
+
+main h1 {
+  text-align: center;
+}
+
+main h1 img {
+  display: block;
+  height: 120px;
+  margin: auto;
+  margin-bottom: 29px;
+}
+
+main h1 strong {
+  box-shadow: inset 0 -0.6em rgba(255, 79, 110, 0.2);
+  border-bottom: 2px solid #ff4f6e;
+}
+
+footer p {
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+h1,
+p {
+  margin: initial;
+  padding: initial;
+}
+
+body {
+  background: url(img/bg.png) no-repeat center;
+  background-size: cover;
+  height: 100vw;
+}
+
+.wrap {
+  width: 300px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.fox {
+  vertical-align: top;
+}
+
+.green {
+  vertical-align: top;
+}
+
+.bottom-box {
+  background-color: #93592d;
+  padding: 10px 15px 40px;
+  border-radius: 0 0 30px 30px;
+  color: white;
+  box-shadow: 0 6px 0 0 rgba(84, 39, 22, 1);
+}
+.bottom-box p {
+  color: #d2d2d2;
+}

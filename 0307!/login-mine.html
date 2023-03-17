@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loging</title>
+    <style>
+      .box{
+
+        width: 350px;
+        margin: auto;
+      }
+      
+      .box .inbox{
+        background:#fff;
+        border: 2px solid rgb(210, 210, 210);
+        border-radius: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+      }
+      
+      .inbox .top{
+          font-weight: 600;
+          font-size: 11px;
+          line-height: 15px;
+          
+        }
+
+      .btn{
+
+        height: 40px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        border-radius: 5px;
+        background-color: blueviolet;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn img{
+        margin-right: 5px;
+        width: 64px;
+        height: 18px;
+      }
+
+      .bottom{
+        display: block;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #767676;
+      }
+      .비밀번호::before{
+        content: '| ';
+      }
+
+
+
+      
+      .bottom img{ 
+      vertical-align: top;
+      }
+
+
+      .bottom-right{
+        float: right;
+      }   
+
+    </style>
+    
+</head>
+<body>
+<div class="box">
+
+<section class="inbox">
+  
+    <p class="top">더 편리해진 위니브에 오신 것을 환영합니다.</p>
+    <p class="btn"><img src="img/weniv-logo.png" alt="">로그인</p>
+
+  <div class="bottom">
+    
+    <img src="img/icon-lock.png" alt="">
+    <span class="아이디">아이디</span>
+    <span class="비밀번호">비밀번호찾기</span>
+  
+<div class="bottom-right">
+    <img src="img/icon-user.png" alt="">
+    <span>회원가입</span>
+  </div>
+
+
+  </div>
+
+
+</section>
+
+</div>
+</body>
+</html>

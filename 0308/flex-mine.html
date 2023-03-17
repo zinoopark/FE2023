@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <style>
+      .wrap{
+        display: flex;
+        flex-direction: column;
+        
+        gap: 10px;
+      }
+      
+      .wrap2{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        height: 600px;
+        
+      }
+
+      header{
+        flex-basis: 100px;
+        background-color: aqua;
+      }
+
+      section{
+        flex-basis:400px;
+        flex-grow: 1;
+        
+        background-color: rgb(162, 93, 228);
+      }
+
+
+      aside{
+        flex-basis:100px;
+        flex-grow: 1;
+        background-color: rgb(164, 251, 216);
+        float: ;
+      }
+
+      footer{   
+        flex-basis: 100px;
+        background-color: rgb(235, 211, 182);
+      }
+      
+
+    </style>
+</head>
+
+<body>
+  <div class="wrap">
+  <header>A header</header>
+
+  <div class="wrap2">
+    <section>B section</section>
+    <aside>C aside</aside>
+  </div>  
+
+    <footer>D footer</footer>
+  </div>
+</body>
+</html>

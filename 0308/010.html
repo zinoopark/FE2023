@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-area</title>
+    <style>
+      header{
+        background: cadetblue;
+      }
+      section{
+        background: rgb(160, 115, 165);
+      }
+      aside{
+        background: rgb(214, 200, 104);
+      }
+      footer{
+        background: rgb(125, 242, 176);
+      }
+      
+      .container {
+        display: grid;
+        grid-template-rows: 1fr 2fr 2fr;
+        grid-template-columns: 2fr 1fr;
+        /* 얘넨 부모한테 */
+        grid-template-areas: 
+        "header header"
+        "section aside"
+        "footer footer"; 
+        gap: 5px;
+      }
+
+      .container header {
+        grid-area: header;
+        /* header에만 100px를 줘도 .container.에 fr에 맞추어 비율로 들어가있기 때문에 다 변한다. */
+        height: 70px;
+      }
+      .container section {
+        grid-area: section;
+      }
+      .container aside {
+        grid-area: aside;
+
+      }.container footer {
+        grid-area: footer;
+      }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>header</header>
+    <section>section</section>
+    <aside>aside</aside>
+    <footer>footer</footer>
+</div>                          
+</body>
+</html>

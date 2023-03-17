@@ -1,0 +1,123 @@
+body {
+  background: rosybrown;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+.card-item a {
+  text-decoration: none;
+  color: #29363d;
+  display: block;
+  /* width: 288px; */
+  background: #fff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-item img {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.card-text {
+  padding: 24px 16px 16px;
+}
+
+.card-text .title {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text .title + p {
+  font-size: 12px;
+  color: #5a6a72;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+  margin: 12px 0 16px;
+  line-height: 20px;
+  height: 40px;
+}
+
+.underline {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 6px;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* float */
+.container {
+  margin: auto;
+  width: min(1224px, calc(100% - 60px));
+}
+
+/* 높이 값 실종된 부모박스 살리기 가상요소 이용한 클리어픽스  */
+.container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container article {
+  float: left;
+  width: calc((100% - (24px * 3)) / 4);
+  margin: 0 0 32px 24px;
+}
+
+/* 맨 왼쪾 열 왼쪽 마진 제거 */
+@media (min-width: 1025px) {
+  /* 해당 width내에 1번, 5번, 9번, .. 카드 마진 0 (1줄에 4개)*/
+  .container article:nth-child(4n-3) {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* 해당 width내에 article값이 마진 24px 2개, 카드 3개 */
+  .container article {
+    width: calc((100% - (24px * 2)) / 3);
+  }
+  /* 해당 width내에 1번, 4번, 7번, .. 맨 왼쪽 카드 마진 0 (1줄에 카드 3개) */
+  .container article:nth-child(3n-2) {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 640px) {
+  /* 해당 width내에 article값이 마진 24px  1개, 카드 2개 */
+  .container article {
+    width: calc((100% - 24px) / 2);
+  }
+  /* 해당 width내에 1번, 3번, 5번, .. 맨 왼쪽 카드 마진 0 (1줄에 카드 2개) */
+  .container article:nth-child(2n-1) {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .container article {
+    width: 100%;
+    margin-left: 0;
+  }
+}

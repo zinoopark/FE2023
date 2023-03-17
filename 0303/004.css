@@ -1,0 +1,24 @@
+ul{
+    list-style:none;
+    padding:0;
+}
+    
+
+
+.ul2 li{
+position:relative;
+padding-left:1em;
+
+}
+    .ul2 li::before{
+    content:"";
+    display:block;
+    width:0.3em;
+    height:0.3em;
+    transform:rotate(45deg);
+    border:2px solid royalblue;
+    border-width: 2px 2px 0 0;
+    position:absolute;
+    left:0;
+    top:0.5em;
+}

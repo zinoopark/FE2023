@@ -1,0 +1,187 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "a c";
+  gap: 20px;
+  box-shadow: inset 0 0 10px #b6b5b5;
+}
+
+.grid-a {
+  /* box-shadow: inset 0 0 10px #333; */
+  grid-area: a;
+}
+
+.grid-b {
+  box-shadow: inset 0 0 10px #333;
+  grid-area: b;
+}
+
+.grid-c {
+  box-shadow: inset 0 0 10px #333;
+  grid-area: c;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-areas:
+      "a a"
+      "b c";
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+    gap: 14px;
+  }
+}
+
+/* Style */
+
+.container {
+  width: 1200px;
+  /* 반응형 작아질수록 왼오 여백 30씩주는 값 */
+  max-width: calc(100% - 60px);
+  /* 가로 값 줄였을 때, 최고 400까지만 작아져라. */
+  min-width: 400px;
+}
+
+.grid-a h1 {
+  /* 미디어쿼리 줄땐 변동값 적어두기 변동값 70 70 36 */
+
+  color: #121314;
+  font-weight: normal;
+  font-size: 70px;
+}
+
+.grid-a p {
+  /* 변동값 20 18 14 */
+  color: #47494d;
+  font-size: 20px;
+  /* 변동값 20 20 14 */
+  margin-top: 20px;
+}
+
+.grid-b,
+.grid-c {
+  border-radius: 20px;
+  color: white;
+  /* 카드를 비율로 조절하자. */
+  aspect-ratio: 486/ 280;
+  /* 변동값 40 30 30 40 / 30 20 20 30 / 30 20 20 30 */
+  padding: 40px 30px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-b {
+  /* contain은 잘리고 공간 남기도함. cover는 잘리지 않고 꽉채움 */
+  background: url(img/weniv1.svg) no-repeat 0 0 / cover;
+}
+
+.grid-c {
+  /* contain은 잘리고 공간 남기도함. cover는 잘리지 않고 꽉채움 */
+  background: url(img/weniv2.svg) no-repeat 0 0 / cover;
+}
+
+.grid-b strong,
+.grid-c strong {
+  font-size: 25px;
+  /* 변동값 30 24 20 */
+}
+.grid-b span,
+.grid-c span {
+  align-self: flex-end;
+}
+
+/* 가상요소 활용 화살표 */
+.go-after::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  /* background: royalblue; */
+  border: 1px solid #fff;
+  border-width: 1px 1px 0 0;
+  transform: rotate(45deg);
+  margin-left: 0.2em;
+  margin-bottom: 0.1em;
+}
+
+/* 백그라운드 이미지 활용 */
+.go-bg {
+  padding-right: 1.1em;
+  background: url(img/stroke.svg) no-repeat right / contain;
+}
+
+@media (max-width: 1200px) {
+  .grid-a p {
+    /* 변동값 20 18 14 */
+    font-size: 18px;
+  }
+
+  .grid-b,
+  .grid-c {
+    /* 변동값 
+		40px 30px 30px 40px
+		30px 20px 20px 30px
+		30px 20px 20px 30px
+	 */
+    padding: 30px 20px 20px 30px;
+  }
+
+  .grid-b strong,
+  .grid-c strong {
+    /* 변동값 30 24 20 */
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-a h1 {
+    /* 변동값 70 70 36 */
+    font-size: 36px;
+  }
+
+  .grid-a p {
+    /* 변동값 20 18 14 */
+    font-size: 14px;
+    /* 변동값 20 20 14 */
+    margin-top: 14px;
+  }
+
+  .grid-b strong,
+  .grid-c strong {
+    /* 변동값 30 24 20 */
+    font-size: 20px;
+  }
+}
+
+/* 820이 넘치면  */
+@media (min-height: 820px) {
+  /* 가장 간단히 가운데 모이게 하는건 flex! margin은 가로에만 국한됨. 처음엔 height가 없어서 세로는 가만히 있을긴데, height를 줘라. vh로 바디는 기본적으로 컨텐츠 높이만큼 높이를 가짐. */
+  body {
+    /* 이건 세로 820 이상에선 바디가(사실 바디안에는 container밖에 없을거임 container가 가로,세로 가운데 정렬 시킨다는 말임.) */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-height: 819px) {
+  /* 마지막 2개 미디어 쿼리가 좀 이해하기 힘들었는데 처음에 스타일 맨위에 있던 body태그를 왜 내렸나 했는데말이지, 가로를 줄이면서 보여지는 각 화면은 문제가 없었는데- 각 가로 별 스크린에서 세로값이 각 container 세로값 아래로 줄어들면(여기서 container height는 기존 body태그가 위에 있었다면 100vh이기 때문에, 보여지는 뷰포트 세로가 계속 줄어들면, 결국 잘리는 수준까지 가서 스크롤이 생김.) 스크롤 등이 생기니까. 820 아래로 가면 위아래(40px)마진을 주고, 양옆은 auto로. 결국 양 미디어 쿼리 보두 container를 가운대로 모으기 위한 명령이라고 볼 수 있다. 820 이하로 세로가 작아지면 더는 천장이나 바닥에 붙지 않게 하기 위함임..*/
+  .container {
+    margin: 40px auto;
+  }
+}

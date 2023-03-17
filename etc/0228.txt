@@ -1,0 +1,92 @@
+1일 1커밋
+cheatsheet 뽑기
+
+웹팩
+TDD
+
+auto rename tag: tag 앞뒤 함께 수정
+htmltagwrap: alt+w 하면 p태그로 감싸줌
+
+클라이언트 기기에 .. www.naver.com 입력하면.. -> 공유기(스위치)-라우터 거쳐 DNS 서버에게 물어봄 -> 저장된 목록중에서 naver.com은 매칭된 IP 주소는 223.130.195.200 라고 알려줌.(역순으로 DNS-라우터-공유기-클라이언트 기기로) -> server -> 웹 브라우저에 표시
+
+라우터(광케이블)
+깡통 URL 구매 - IP를 구매하고 연결해야 됨
+
+주소=ip
+문=port (같은 서버내에서 서비스 되는 것) url:숫자(port)
+ex) url앞에 자물쇠 걸려있으면 443 생략되있는 것임
+
+80 -> http 웹페이지 전송
+443 -> https
+
+Git과 GitHub는 다르다.Git은 분산 버전 관리 '시스템'이며 GitHub은 루비 온 레일즈로 만들어진 '웹 서비스'이다. Git은 내 컴퓨터에 설치되는 SW이며, GitHub은 웹 서비스이다.
+
+
+:: h1{hello world} -> <h1>hi</h1>
+
+:: h1+p -> <h1></h1> <p></p>
+
+:: h$*5 -> <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
+    <h5></h5>
+
+:: p.hello{hi} -> <p class="hello">hi</p>
+
+:: table>(tr>td*3)*4  ->
+<table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+:: ul>li.item$*5
+    <ul>
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+        <li class="item4"></li>
+        <li class="item5"></li>
+    </ul>
+
+:: p.one.two.three -> <p class="one two three"></p>
+
+:: lorem -> 로렘입숨 입력해 줌.
+
+:: 웹 접근성이 최우선이다 -> div는 적게 씀
+
+:: .hello -> <div class="hello"></div> , #hello ->  <div id="hello"></div>
+
+
+:: 코드 공유 기억할 것 
+GitHub
+프로젝트 다운로드 받을 때: (폴더에서 배쉬 열고)
+git clone repo주소 .
+
+git pull                <-개인 프로젝트에선 필요 없음
+코드 수정
+
+git add .
+git commit -m '메시지'
+git push
+
+
+:: git init -> .git 숨김폴더가 생김

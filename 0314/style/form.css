@@ -1,0 +1,60 @@
+body {
+  background-color: #fffaf0;
+}
+
+/* .login {
+  width: 392px;
+  가로에 대해서만 할거기 때문에 position말고 마진오토
+  margin: 0 auto;
+} */
+
+.login label,
+input,
+button {
+  display: block;
+  width: 100%;
+  /* 인풋버튼등이 폼 밖으로 튀어나가서 */
+  box-sizing: border-box;
+}
+
+.login input {
+  /* 상세 사이즈는 피그마 참조 */
+  /* 보더 아래만 선들어가게 */
+  /* border-width: 0 0 1px 0;
+  border-color: #677880; */
+  border: none;
+  box-shadow: 0 1px 0 0 #677880;
+  height: 48px;
+  margin-bottom: 24px;
+  transition: border 0.2s;
+  border-radius: 4px 4px 0 0;
+  padding: 0 16px;
+}
+
+.login input:hover {
+  /* border-color: #2e6ff2;
+  border-bottom-width: 2px; */
+  box-shadow: 0 2px 0 0 #2e6ff2;
+}
+.login input:focus {
+  outline: none;
+  /* border-bottom-width: 2px solid #2e6ff2; */
+  box-shadow: 0 0 0 2px #2e6ff2;
+}
+
+.login label {
+  font-size: 14px;
+  color: #29363d;
+  margin-bottom: 8px;
+}
+
+.login button {
+  background: #29363d;
+  color: white;
+  height: 48px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}

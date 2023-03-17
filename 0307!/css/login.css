@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+body{
+  background: royalblue;
+}
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+.wrap{
+  width: 400px;
+  margin: 40px auto;
+}
+.login{
+  /* 전체박스 */
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px; 
+  font-size: 12px;
+  padding: 18px 16px;
+
+}
+.login h1{
+  /* 이렇게 할 경우 스크린리더에서 무시됨. 검색엔진 안되고 웹접근성 떨어지고 트리에서 사라진다. 오파시티 0이나 w,d을 0픽셀로 할 경우는 overflow_ hidden 등 ..*/
+  display: none;
+}
+
+/* a태그꾸며주기 집중 */
+
+.btn-login{
+  /* a태그이기때문에 블록요소줘야 width,height줄수있다. */
+  display: block;
+  background-color: #711bff;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  /* 이런 정렬때문에 이미지로 주고..가상요소로 이미지 넣는경우도 있고 버티컬 주기 어렵다.. 라고 하면.. 아래 btn-login img 태그안에 일일이 버티컬주고 패딩값 주는 것 대신에 .. flex하는법 있다. flex배우면 flex하자.
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  /* 이건 로그인 버튼(보라색) 위 아래(위 아래 컨텐츠 서로 간에)마진 준 것 */
+  margin: 16px 0;
+}
+
+
+.btn-login img{
+  height: 18px;
+  /* 이미지 가운데 정렬해야해, 이 방법이 아니라면 btn-login 상위로 올라가서 내부 요소들 flex로 정렬하든가. */
+  vertical-align: middle;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.login-link a{
+  text-decoration: none;
+  color: #767676;
+}
+
+.login-link a:last-child{
+  float: right;
+}
+
+/* 아이디찾기 속 img삽입 */
+
+/* .find-id{ */
+  /* background: url(../img/icon-lock.png) no-repeat 0 0 / 1em; <-이렇게 축약본으로 사용할 수 있음. url - 반복 여부 - 위치 / 사이즈 순으로 쓴다.*/
+  
+  /* background-image: url(../img/icon-lock.png);
+  background-image: url(../img/icon-lock.png);
+  /* 바둑판처럼 나오지않게 no-repeat*/
+  /* background-repeat: no-repeat; 
+  background-position: 0 50%;
+  background-size: 1em;
+  padding-left: 1.2em;
+} */
+
+/* 이렇게 공통되는 배경이미지(작은 이미지)반복여부, 위치, / 사이즈, 패딩 등 미리 설정하고 맨 밑에는 차이점 되는 url 주소만 입력해도됨. */
+.find-id,
+.btn-join {
+  background-repeat: no-repeat;
+  /* 50%는 수평 중 가운데 정렬, 왼쪽위 꼭지점 기준으로 포지션 */
+  background-position: 0 50%;
+  background-size: 1em;
+  padding-left: 1.2em;
+}
+
+.find-id + span{
+  /* 짝대기를 위한 span생성. span은 인라인 요소라 블락 해줘야하고, 정렬도 해줘야함. */
+  display: inline-block;
+  /* 마진 위px, 양옆px, 아래px 인스펙터 돌려서 체크 */
+  margin: 1px 3px 3px; 
+  vertical-align: middle;
+
+  width: 1px;
+  height: 12px;
+  background-color: #c0c0c0;
+}
+
+.find-id {
+  background-image: url(../img/icon-lock.png);
+}
+
+.btn-join{
+  background: url(../img/icon-user.png)no-repeat 0 50% / 1em;
+}

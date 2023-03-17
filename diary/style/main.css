@@ -1,0 +1,146 @@
+.herat {
+  font-size: 16px;
+  background: url(../img/heart.svg) no-repeat 0 center / 1.4em;
+  padding-left: 1.4em;
+}
+
+.diary-textarea {
+  width: 100%;
+  height: 360px;
+  resize: none;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: inherit;
+  /* textarea는 인라인이므로 아래 바깥 공간이 남는다. 마치img처럼.. 그래서 블락주거나 vertical-align: top; 주든가 하셈. */
+  display: block;
+}
+
+.diary-textarea::placeholder {
+  font-size: 16px;
+}
+
+.diary-main textarea {
+  margin: 16px 0;
+}
+
+/* article */
+/* ul, li reset */
+ul,
+li {
+  /* 불렛 삭제 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+h3 {
+  margin: 0;
+}
+
+.diary-article {
+  border-style: solid;
+  border-color: #677880;
+  border-width: 4px 1px 1px 1px;
+  padding: 64px 48px;
+  position: relative;
+  /* margin-top: 20px; */
+}
+
+.diary-article::before,
+.diary-article::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 40px;
+  background-color: 677880;
+  position: absolute;
+}
+
+.diary-article::before {
+  top: -20px;
+  left: 30px;
+  background: #fffaf0 url(../img/quote-start.svg) no-repeat 0 0 / contain;
+}
+.diary-article::after {
+  bottom: -20px;
+  right: 30px;
+  background: #fffaf0 url(../img/quote-end.svg) no-repeat 0 0 / contain;
+}
+.article-title {
+  color: #29363d;
+  font-size: 16px;
+  float: left;
+}
+.article-title::before {
+  content: "";
+  display: block;
+  width: 100%;
+  border-top: 1px solid #677880;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  z-index: -1;
+}
+
+.article-time {
+  color: #677880;
+  font-size: 12px;
+  float: right;
+}
+
+.article-content {
+  color: #5a6a72;
+  font-size: 14px;
+  line-height: 1.4;
+  clear: both;
+  margin-top: 40px;
+}
+
+/* layout */
+.container {
+  display: flex;
+  width: 1224px;
+  /* 축소시 양쪽 30px */
+  max-width: calc(100% - 60px);
+  /* 중앙정렬 auto */
+  margin: auto;
+  gap: 40px;
+}
+
+.container main {
+  /* 왼쪽 적는 칸은 중요하니까 416 이하로 줄어들지 않게 shrink */
+  flex-shrink: 0;
+  /* 최소 이 정도 크기 */
+  flex-basis: 456px;
+  /* 가운데 선 */
+  border-right: 1px solid #ff4f6e;
+  padding-top: 56px;
+  padding-right: 40px;
+  /* 선이 딱 맞게 안하기 위해 calc안에 120px은 헤더의 높이 만큼 빼서 스크롤 생기는걸 없애기 위함, 그냥 100%를 주면 부모의 영향(부모 크기의 100%가됨)을 받아서 */
+  min-height: calc(100vh - 120px);
+  /* 보더박스하면서 패딩값 40px flex-basis에 더해줘야함 (원래 베이시스 416으로 해줬따 바꿈) */
+  box-sizing: border-box;
+}
+
+/* 후자 우선 법칙에 따라 미디어를 위에 적어버리면 뭔가 안먹을 수 있다. 여기서 boder를 없앳다가 보더를 넣겠다라는 명령이 있으면(container main) 이 미디어 쿼리 안에 명령이 안먹을 수 있음. border-right등 */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .container main {
+    border-right: 0;
+    padding-right: 0;
+    /* 높이값을 원래 초깃값으로 하겠다 initial도 가능 */
+    min-height: auto;
+  }
+}
+.container section {
+  padding-top: 94px;
+}
+
+.container section ul li {
+  margin-bottom: 76px;
+}

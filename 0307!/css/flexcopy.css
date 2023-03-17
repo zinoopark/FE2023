@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.box{
+  background-color: rgb(245, 245, 245);
+  width: 400px;
+  border: 1.5px solid rgb(198, 198, 198);
+  border-radius: 5px;
+  padding: 16px;
+  margin: 50px auto;
+}
+
+.a11y-hidden+p{
+  font-size: 12px;
+  font-weight: 600;
+  
+}
+
+.box a{
+  text-decoration: none;
+
+}
+
+.btn-center{
+  background-color: rgb(129, 12, 254);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+  margin: 16px 0;
+  padding: 15px;
+}
+
+.bottom{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.btn-center a{
+  color: white;
+  margin-top: 3px;
+  margin-left: 5px;
+  font-size: 12px;
+  
+}
+
+.bottom-left{
+  position: relative;
+}
+
+.find-id{
+  
+}
+.find-pw{
+  /* flex 요소내 왼쪽 요소: flex: none; 하고 오른쪾 정렬 요소는 margin-left: auto;하면 된다. */
+  padding-left: 6px;
+}
+
+.find-pw::before{
+  content: "";
+  position: absolute;
+  top: 5px;
+  /* left: -2px; */
+  width: 1px;
+  height: 12px;
+  background-color: #c0c0c0;
+  margin-left: -5px;
+}
+
+.bottom a{
+  color: #767676;
+  font-size: 12px;
+}
+
+.find-id{
+  
+  background: url(../img/icon-lock.png) no-repeat 0 50% / 1em ;
+  padding-left: 1.3em;
+}
+
+.join-id{
+  margin-left: auto;
+  background: url(../img/icon-user.png) no-repeat 0 50% / 1em ;
+  padding-left: 1.3em;
+}

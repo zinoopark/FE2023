@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxtest</title>
+    <style>
+
+
+
+    div{
+
+        width: 200px;
+        height: 80px;
+        line-height: 80px;
+
+        font-size: 30px;
+        text-align: center;
+        font-weight: 600;
+
+
+        
+    }
+    .box1{
+        background-color: #343f50;
+        border-top: 3px solid #4a5568;
+        border-left: 3px solid #4a5568;
+        box-shadow: 0 0 0 3px #000;
+        color: white;
+
+    }
+
+
+    .box2{
+        color: white;
+        background: linear-gradient(90deg, rgba(155,32,255,1) 0%, rgba(0,134,255,1) 100%);
+        border-radius: 70px;
+        
+/* 방법2 */
+        position: absolute;
+        box-sizing: border-box;
+        top: 0px;
+        left: 0px;
+
+
+        
+    }
+
+    .box2-dash{
+
+        background-color: #fff;
+        border: 6px dashed rgb(247, 211, 255);
+        border-radius: 70px;
+
+/* 방법1 */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+
+/* 방법2 */
+position: relative;
+
+    }
+
+
+
+    .box3{
+        box-shadow: 5px 7px 15px 3px rgba(0, 0, 0, 0.1);
+        border: 2px solid #ececec;
+        border-radius: 0 50px 50px 50px;
+        columns: #343f50;
+        
+    }
+
+
+    </style>
+</head>
+
+
+<body>
+<section class="wrap">
+        <div class="box1">Hello 🖐🏻</div><br>
+    <div class="box2-dash">
+        <div class="box2">Hello 🖐🏻</div>
+    </div><br>
+        <div class="box3">Hello 🖐🏻</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body{
+  background-color: rgb(118, 158, 9);
+}
+
+/* card-item이라는 article class는 카드의 기본적인 디자인(box느낌). */
+.card-item{
+  width: 288px;
+  background: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
+/* margin-top: 10px ; */
+}
+
+h2, p{
+  margin: 0;
+}
+
+/* a태그는 인라인 요소라 링크위에 포커스가 없음. */
+.card-item a{
+  color: #29363D;
+  display: block;
+  text-decoration: none;
+  
+}
+
+/* width 288px 설정했는데도 이미지가 따로 자기 크기를 왜 유지하지? 그럼 card-item속에 img를 width 100%줘서 상위 class크기에 딱 맞게 해보자.*/
+.card-item img {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+  /* 이미지 크기 설정하고 개같이 늘어나면 object-fit: cover;설정. 100프로로 늘어난 상태에서 이미지 원래 비율대로 꽉차게 해줌. */
+
+  /* card-text에 마진 각각 설정하니 이미지 아래에 이상한 여백이 생기면  ,,? 이건 card-text에서 bgcolor 적용해서 확인하는 습관을 들여용. vertical-align: top; 적용! */
+  vertical-align: top;
+}
+
+
+
+.card-text{
+  padding: 24px 16px 19px 16px ;
+}
+
+.card-item .title{
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 1줄 말줄임 할때 코드 */
+}
+
+/* title이란 이름이 많이 쓰이니까.. 굳이 card-itme을 중첩해준다. title 바로 뒤의 p선택 p가 바뀔수도 있따면 이것을.. */
+.card-item .title + p {
+  font-size: 12px;
+  color: #5A6A72;
+  
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+
+  margin: 12px 0 16px;
+  line-height: 20px;
+  /* 마진이나 라인헤이트 이거 피그마에서 따온 값들임. */
+}
+ 
+.underline{
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
+}

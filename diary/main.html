@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일기쓰기 | 두근두근 비밀일기</title>
+    <link rel="stylesheet" href="./style/common.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-wrap">
+        <h1>
+          <a href="#"
+            ><img class="logo" src="./img/logo.svg" alt="두근두근 비밀일기"
+          /></a>
+        </h1>
+
+        <div>
+          <p class="hello">환영합니다<strong>홍길동</strong>님!</p>
+          <a href="#" class="btn-logout">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <!-- 왼쪽 적는 창 -->
+      <main class="diary-main">
+        <h2 class="herat">2023.02.27의 비밀일기</h2>
+
+        <form>
+          <label class="a11y-hidden" for="diary-title">제목</label>
+          <input
+            class="input-style"
+            id="diary-titl"
+            type="text"
+            placeholder="제목을 입력해주세요."
+          />
+
+          <textarea
+            class="diary-textarea"
+            placeholder="오늘의 비밀은 무엇이오"
+          ></textarea>
+
+          <button class="black-btn" type="submit">작성하기</button>
+        </form>
+      </main>
+      <!-- 오른쪽 lists-->
+      <section>
+        <h2 class="a11y-hidden">일기 목록</h2>
+        <!-- ul자식요소는 li밖에 못옴. 자손은 상관없음 -->
+        <ul>
+          <li>
+            <article class="diary-article">
+              <h3 class="article-title">
+                이는 청춘의 것의 그들이 어쩌고 저쩌고.
+              </h3>
+              <time class="article-time" datetime="2023-03-19">2023-03-19</time>
+              <p class="article-content">
+                소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 전인 못할
+                가진 열락의 것이다. 같이 풀이 위하여 인생을 것이다. 생명을
+                품으며, 이상의 칼이다. 품고 위하여, 피고 것은 미인을 것은 낙원을
+                칼이다. 청춘의 힘차게 바이며, 간에 것이다. 천하를 설레는 보는
+                그들의 봄날의 그리하였는가?
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="diary-article">
+              <h3 class="article-title">
+                이는 청춘의 것의 그들이 어쩌고 저쩌고.
+              </h3>
+              <time class="article-time" datetime="2023-03-19">2023-03-19</time>
+              <p class="article-content">
+                소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 전인 못할
+                가진 열락의 것이다. 같이 풀이 위하여 인생을 것이다. 생명을
+                품으며, 이상의 칼이다. 품고 위하여, 피고 것은 미인을 것은 낙원을
+                칼이다. 청춘의 힘차게 바이며, 간에 것이다. 천하를 설레는 보는
+                그들의 봄날의 그리하였는가?
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="diary-article">
+              <h3 class="article-title">
+                이는 청춘의 것의 그들이 어쩌고 저쩌고.
+              </h3>
+              <time class="article-time" datetime="2023-03-19">2023-03-19</time>
+              <p class="article-content">
+                소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 전인 못할
+                가진 열락의 것이다. 같이 풀이 위하여 인생을 것이다. 생명을
+                품으며, 이상의 칼이다. 품고 위하여, 피고 것은 미인을 것은 낙원을
+                칼이다. 청춘의 힘차게 바이며, 간에 것이다. 천하를 설레는 보는
+                그들의 봄날의 그리하였는가?
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

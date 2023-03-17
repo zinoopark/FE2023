@@ -1,0 +1,46 @@
+0308
+flex를 사용하려면 꼭 부모 개념이 있어야함
+
+flex-basis는 기본 사이즈를 정하고, 요소개수가 많아지면 유연하게 줄어들거나한다. 그럴경유 row일경우 width 값이 무시되며 column일 경우 height값이 무시된다. 
+
+flex-grow 어느정도 공간을 할당할지. 비율로 내부에서 할당할 수 있는 공간의 정도를 지정
+
+flex-shirink 숫자가 클수록 더 많이 줄어들거야. 
+
+align-self 부모의 aling-item 속성을 덮어 flex-item에게 개별의 속성을 줄 수 있음. 형제 내 order등도 변경 가능. 기본 값은 stretch
+
+order 수가 작을 수록 우선순위
+
+flex 단축속성.. grow shrink basis 순서
+자식 속성에 줘야함. 
+flex: 1 1 100px; 늘어나기도하고 줄어들기도하겠다
+flex: 1 0 100px; 늘어나긴 하지만 줄어들진 않겟다
+flex: 0 1 100px; 늘어나진 않지만 줄어들겟다
+
+부모{
+display: flex;
+gap
+}
+
+자식{
+flex: 1 1 100px;
+}
+
+grid 
+부모 container
+자식 cell 개념
+그리드 트랙 : 행row - 렬column
+그리드 갭: gutter(gap 사용가능)
+
+인라인 개념에 display: grid가 먹히면 블록 개념으로 바뀐다.
+
+여러 브라우저에 대응해야 하면 flex, grid를 안 쓸 '수도' 있다
+
+minmax(px,px등) ~보단 작아지지 않고 ~보단 커지지 않도록 범위를 성정하는 grid 함수.
+
+repeat(3,minmax(200px,300px))등으로 섞어쓸수도있음.
+
+autofill은 남는 공간있음 남겨준다.
+autofit은 남은 공간도 채워준다.
+
+

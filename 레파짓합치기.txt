@@ -1,0 +1,2 @@
+git subtree add --prefix=i_am_rich https://github.com/fomagran/i_am_rich.git master
+git push origin HEAD:main

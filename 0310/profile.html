@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>veam</title>
+    <style>
+      h1,
+      h2,
+      ul,
+      p {
+        margin: initial;
+        padding: initial;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      img {
+        vertical-align: top;
+      }
+
+      /* :root {
+                direction: ltr;
+              } */
+      body {
+        background: url(img/background4.png) no-repeat;
+      }
+
+      .wrapper {
+        background-color: rgb(200, 196, 196);
+        width: 800px;
+        margin: 40px auto;
+        /* border: 5px solid red; */
+        text-align: center;
+      }
+
+      .header {
+        background-image: url(img/cover03.png);
+        background-size: cover;
+        color: white;
+        /* 상하단 padding을 줘서 자연스러운 레이아웃. */
+        padding: 50px;
+      }
+
+      /* 만약 다른 새로운 img가 추가되면 큰일난다. 타입셀렉터는 지'양'하자 가장 일반적인 방법은 역시.. class selector로 선택자는 '명시적'으로 가자 이거 붙여 쓰는거당.. >>> img.profile.. hearder와 img.profile은 부모자식.. 끝까지 붙여쓰면 풀네임에 ㅇ가까워짐..img와profile은 같은 위계..*/
+      .header img.profile {
+        /* css reset 햇음 */
+        /* vertical-align: top; */
+        border: 10px solid white;
+        border-radius: 500px;
+      }
+
+      /* 이것도 그냥 h1으로 하면 ..위험의 소지가 있음. 띄어쓰기는 컴비네이터.. 자손 선택자..Descendant combinator h1다 와봐라. 조상중에 header만 남아.. 이거 씌어쓰는거다.. >>> header' 'h1,p*/
+      .header h1 {
+        /* box-shadow: inset 0 0 10px cadetblue; */
+        border-bottom: 3px solid;
+        /* 상하20 / 좌우auto */
+        margin: 20px auto;
+        width: 300px;
+      }
+
+      .header p {
+        /* box-shadow: inset 0 0 10px cadetblue; */
+      }
+
+      .contents {
+        text-align: left;
+      }
+      .section {
+        background-color: white;
+        /* 충격 마진병합현상은 의도돼있는 시스템이다.. 안돼있었다면 중간이 60px이 떨어지는데, 디자인적인 측면에서 다.시.붙.여.줘.야.할걸.? */
+        margin: 30px;
+        padding: 30px;
+        background-image: url(img/icon-information.png);
+        background-repeat: no-repeat;
+        background-position: right 40px center;
+      }
+
+      .section h2 {
+        color: olivedrab;
+        margin-bottom: 5px;
+      }
+
+      .section.skills {
+        background-image: url(img/icon-skills.png);
+      }
+
+      .section ul {
+        text-indent: 1em;
+      }
+
+      .footer {
+        background-color: #f4f4f4;
+        padding: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <img class="profile" src="img/profile02.png" alt="" />
+        <h1>YONG SANG LEE</h1>
+        <p>Front-end developerFront-end developer</p>
+      </div>
+
+      <div class="contents">
+        <div class="section information">
+          <h2>Information</h2>
+          <ul>
+            <li>Lee Sang Yong</li>
+            <li>ckfflekfxms@gmail.com</li>
+            <li>Seoul, Korea</li>
+          </ul>
+        </div>
+        <div class="section skills">
+          <h2>Skills</h2>
+          <ul>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
+            <li>Scrolling</li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="footer">All rights reserved. 2023 Yongisadragon</footer>
+    </div>
+  </body>
+</html>

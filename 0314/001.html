@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+    <style>
+      table {
+        width: 80%;
+        border: 1px solid grey;
+        /* border 2줄 or 1줄 */
+        /* border-collapse: collapse; */
+      }
+      th,
+      td {
+        border: 1px solid grey;
+      }
+      .blue {
+        background: skyblue;
+      }
+      .gold {
+        background: goldenrod;
+      }
+      .pink {
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- table은 container속성이다. -->
+    <table>
+      <caption>
+        테이브 설명
+      </caption>
+      <!-- 스타일 지정할 때 col에 개별 지정 -->
+      <colgroup>
+        <col span="2" class="blue" />
+        <col class="gold" />
+        <col class="pink" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>셀 제목</th>
+          <th>셀 제목</th>
+          <th>셀 제목</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>셀 내용</td>
+          <td>셀 내용</td>
+          <td>셀 내용</td>
+          <td>셀 내용</td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </body>
+</html>

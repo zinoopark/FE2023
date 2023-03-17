@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+      .grid-container {
+        display: grid;
+        /* 각 행의 크기를 100 200 100 으로설정 */
+        /* fr(fraction)으로 비율대로 잘라 쓸 수 있음 */
+        /* repeat()함수로 입맛 따라 사용할 수 있다. (갯수, fr 입력) */
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-rows: 2fr 1fr 2fr;
+        gap: 10px;
+      }
+      .grid-item:first-child{
+        grid-row-start: 1; /* 1 */
+        grid-row-end: 2; /* 3 */
+        grid-column-start: 1; /* 2 */
+        grid-column-end: 4; /* 4 */
+        /* = grid-row: 1/2;
+        grid-column: 1/4; */
+
+      }
+      .grid-item {
+        background-color: rgb(148, 140, 240);
+        border: 3px solid red;
+
+      }
+
+
+    </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis perferendis quod sequi, veritatis odit, debitis voluptatum dolor maxime culpa molestias quo amet accusantium nisi expedita quibusdam quisquam ab delectus eum.</div>
+    <div class="grid-item">B</div>
+    <div class="grid-item">C</div>
+    <div class="grid-item">D</div>
+    <div class="grid-item">E</div>
+    <div class="grid-item">F</div>
+  </div>
+
+
+</body>
+</html>
