@@ -1,0 +1,188 @@
+/* reset */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: 0;
+  background: none;
+  font: inherit;
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* header */
+.cinema-header {
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  /* 밑줄 보더 바텀 길이 만큼 */
+  width: 650px;
+  border-bottom: 2px solid #bdbdbd;
+  padding-bottom: 37px;
+  margin: auto;
+}
+
+.cinema-nav ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.cinema-nav button {
+  padding: 10px 20px;
+  color: #828282;
+}
+
+.cinema-nav button.active {
+  font-weight: bold;
+  color: black;
+}
+
+/* main-article */
+.cinema-card {
+  /* width: 220px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+}
+
+.card-contents {
+  padding: 19px 20px 18px;
+}
+.card-contents img {
+  border: 1px solid #bdbdbd;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  /* 이미지 비율로, 너비 꽉차게, 그리고 안잘리고 cover하는 명령어 셋 */
+  aspect-ratio: 180/250;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 16px;
+  margin: 12px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-info {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+/* li:first-child 와 li :first-child는 다르다~! 첫번재껀 ul아래 li중에 첫번째 li가, 두번째건 li들의 자식들중 첫번째들만 선택. 유의 */
+.card-info li :first-child {
+  color: #828282;
+  margin-right: 5px;
+}
+/* ellpisis 통제 */
+.card-info li :last-child {
+}
+
+.ellipsis {
+  float: ;
+}
+
+.star {
+  /* 크기는 폰트사이즈에 맞게 em사용 */
+  background: url(img/icon-star.svg) no-repeat 0 50% / 1em;
+  padding-left: 1.3em;
+}
+
+.bottom-button {
+  border-top: 1px solid #bdbdbd;
+  display: flex;
+}
+
+.bottom-button a,
+.bottom-button button {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  /* 포커스는 아웃라인으로 들어가서, 상위 선택자에 overflow:hidden같은거 들어가면 잘리니까 */
+  width: 100%;
+}
+
+.bottom-button a {
+  border-right: 1px solid #bdbdbd;
+  border-radius: 0 0 0 10px;
+}
+/* 버튼은 괜찮지만 a태그 포커스 일부잘리는 것 때문에 위로 나오도록 */
+.bottom-button a:focus {
+  z-index: 1;
+}
+.bottom-button button {
+  border-radius: 0 0 10px 0;
+}
+.bottom-button button::before {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: url(img/icon-play.svg) no-repeat 0 50%;
+}
+
+main {
+  display: grid;
+  /* fr만 쓰면 안에 콘텐츠 때매 고정값 잡아주어야함 220px와 1fr사이의 값을 설정*/
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 24px 23px;
+  border: 2px solid #bdbdbd;
+  border-radius: 15px;
+  background-color: white;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.wrap {
+  border: 2px solid #bdbdbd;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  padding: 40px 30px 30px;
+  width: 1060px;
+  margin: 86px auto 135px;
+}

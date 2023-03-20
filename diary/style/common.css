@@ -4,6 +4,9 @@ body {
   background: #fffaf0;
 }
 
+button {
+  border: 0;
+}
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);

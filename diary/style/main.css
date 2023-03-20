@@ -15,8 +15,7 @@
   /* textarea는 인라인이므로 아래 바깥 공간이 남는다. 마치img처럼.. 그래서 블락주거나 vertical-align: top; 주든가 하셈. */
   display: block;
 }
-
-.diary-textarea::placeholder {
+ㄴ .diary-textarea::placeholder {
   font-size: 16px;
 }
 
@@ -143,4 +142,46 @@ h3 {
 
 .container section ul li {
   margin-bottom: 76px;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #fff;
+  border: 1px solid #677880;
+  width: 111px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  /* 브라우저 버튼 기본제공 패딩삭제 */
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.button-group button:hover {
+  opacity: 1;
+}
+
+.button-group button img {
+  width: 100%;
+}
+
+.button-group span {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: #d8ddde;
+  margin: 0 4px;
 }
