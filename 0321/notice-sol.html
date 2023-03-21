@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>notice-sol</title>
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul,
+    li,
+    h1,
+    p {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .notice {
+      color: rgb(37, 37, 37);
+      position: relative;
+      width: 728px;
+      margin: auto;
+    }
+
+    .notice-title {
+      font-size: 30px;
+    }
+
+    .notice-list {
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .notice-list li {
+      border-bottom: 1px solid #eee;
+    }
+
+    .notice-list li p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+    }
+
+    .notice-list li a {
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* 패딩 탑다운 대신 헤이트주기 */
+      height: 56px;
+      /* p와 time간에 간격 */
+      gap: 37px;
+    }
+
+    .notice-list li a strong {
+      color: #2e6ff2;
+      margin-right: 16px;
+    }
+
+    img {
+      vertical-align: bottom;
+    }
+
+    .more {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="notice">
+    <h1 class="notice-title">공지사항</h1>
+    <ul class="notice-list">
+      <li>
+        <a href="#">
+          <p>
+            <strong>공지사항</strong>
+            소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 천하를 설레는 보는 그들의 봄날의 그리하였는가?
+          </p>
+          <time>2023.03.29</time>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <p>
+            소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 천하를 설레는 보는 그들의 봄날의 그리하였는가?
+          </p>
+          <time>2023.03.29</time>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <p>
+            소금이라 일월과 고동을 가는 같지 피에 내는 봄바람이다. 천하를 설레는 보는 그들의 봄날의 그리하였는가?
+          </p>
+          <time>2023.03.29</time>
+        </a>
+      </li>
+    </ul>
+    <a class="more" href="#"><img src="img/add.svg" alt="공지사항 더보기"></a>
+  </section>
+</body>
+
+</html>

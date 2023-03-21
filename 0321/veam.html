@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>veam</title>
+  <style>
+    html {
+      /* font-size: 10px; */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    body {
+      background-color: blueviolet;
+    }
+
+    /* layout */
+    .wrapper {
+      width: 960px;
+      margin: 0 auto;
+
+    }
+
+    .container.one {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .title {
+      color: white;
+      font-size: 1.6em;
+      font-weight: 600;
+      line-height: 120%;
+      flex-basis: 180px;
+      flex-shrink: 0;
+      /* box-shadow: inset 0 0 10px #bdbdbd; */
+
+    }
+
+    .line {
+      width: 220px;
+      height: 1px;
+      background-color: white;
+    }
+
+    .underline {
+      box-shadow: inset 0 -0.4em rgb(255, 98, 0)
+    }
+
+    .text {
+      color: white;
+      /* font-size: 12px; */
+      line-height: 150%;
+      margin-right: 300px;
+      /* box-shadow: inset 0 0 10px #bdbdbd; */
+    }
+
+    .container.two {
+      display: flex;
+      background-color: white;
+      height: 120px;
+    }
+
+    .tumbnail {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 190px;
+    }
+
+    .tumbnail>h2 {
+      position: relative;
+      color: white;
+      font-weight: 600;
+    }
+
+    .tumbnail::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url(img/photo01.png) no-repeat 0 0 / cover;
+      opacity: 0.5;
+      z-index: ;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container one">
+        <h1 class="title"> START YOUR
+          <span class="underline">PORTFOLIO PROJECT</span>
+        </h1>
+        <div class="line"></div>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+          the industry'standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+          scrambled
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container two">
+        <div class="tumbnail">
+          <h2>Rest</h2>
+        </div>
+
+        <div class="contents">
+          <h3>Take a rest</h3>
+          <ul>
+            <li>It has survived not only five centuries.</li>
+            <li>Why do we use it?</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has root.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

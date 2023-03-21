@@ -112,7 +112,7 @@ h3 {
   /* 왼쪽 적는 칸은 중요하니까 416 이하로 줄어들지 않게 shrink */
   flex-shrink: 0;
   /* 최소 이 정도 크기 */
-  flex-basis: 456px;
+  flex-basis: 416px;
   /* 가운데 선 */
   border-right: 1px solid #ff4f6e;
   padding-top: 56px;
