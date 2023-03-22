@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/style.css">
+  <title>login</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <p>로그인 또는 회원가입</p>
+    </header>
+    <main>
+      <form>
+
+        <h2>위니브에서 여러분의 궁금증을 해결하세요!</h2>
+        <label class="a11y-hidden" for="id">아이디</label>
+        <input class="box-id" type="text" id="id" placeholder="아이디" required>
+        <!-- required적용 위해선 폼 태그 안에 버튼 있어야 하는 것 기억하기 -->
+
+        <label class="a11y-hidden" for="pw">비밀번호</label>
+        <input class="box-pw" type="text" id="pw" placeholder="비밀번호" required>
+
+        <input class="inp-hold a11y-hidden" id="lgin-chk" type="checkbox">
+        <label class="checkbox-label" for="lgin-chk">로그인 상태 유지</label>
+
+        <button class="box-lgin" type="submit">로그인</button>
+
+      </form>
+
+
+      <div class="find">
+        <a class="join" href="#">회원가입</a>
+        <span>|</span>
+        <a class="idpw" href="#">아이디/비밀번호 찾기</a>
+      </div>
+
+      <p class="or">또는</p>
+
+      <ul class="others">
+        <li class="google"><a href="#">구글 계정으로 로그인</a></li>
+        <li class="facebook"><a href="#">페이스북 계정으로 로그인</a></li>
+        <li class="naver"><a href="#">네이버 계정으로 로그인</a></li>
+        <li class="kakao"><a href="#">카카오톡 계정으로 로그인</a></li>
+      </ul>
+    </main>
+    <button class="close"></button>
+
+  </div>
+</body>
+
+</html>

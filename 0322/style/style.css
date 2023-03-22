@@ -1,0 +1,223 @@
+/* reset */
+@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+body {
+  font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+/* layout */
+.wrapper {
+  width: 520px;
+  margin: 100px auto;
+  background-color: white;
+  position: relative;
+}
+
+header {
+  padding: 20px 0 18px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+header p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 16px;
+  height: 16px;
+  background: url(img/close.svg) no-repeat;
+}
+
+main {
+  padding: 26px 24px 25px;
+}
+
+.wrapper {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+}
+
+.wrapper h2 {
+  margin: 0 0 24px 0;
+}
+
+.box-id,
+.box-pw {
+  color: #767676;
+  font-size: 16px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  padding: 15px 16px;
+}
+
+.box-pw {
+  margin: 10px 0 16px;
+}
+
+.checkbox-label::before {
+  display: inline-block;
+  content: "";
+  width: 22px;
+  height: 22px;
+  margin-right: 7px;
+  vertical-align: bottom;
+  background: url(../img/check_empty.png) no-repeat;
+  transition: 0.3s ease;
+}
+
+/* 라벨(글씨부분)에는 비포어 가상요소로, 가상요소안에 빈체크박스 이미지를 넣어 배치했고, 참고로 인풋(여기서는 인풋타입 checkbox) 실제로 체크되고, 포커스되는 실질적인 부분이기 때문에, 인풋에는 a11요소를 위한 2개 클래스를 줬따.(a11y-hidden과 inp-hold) 그래서 아래 코드는 .inp-hold:checked됐을때, 그 아래 포함되는 .checkbox-label(해당 인풋에 포함되는 라벨의 클래스이름)의 가상요소에 백그라운드 이미지(꽉찬 이미지)를 주겠다는 코드임. */
+.inp-hold:checked + .checkbox-label::before {
+  background: url(../img/check.png) no-repeat;
+}
+
+/* 이건 인풋이 포커스드 됐을 때 안보이게 해준다는 명령을, 그 가상요소에 주는것임.(기능은 input이, 보여지는건 label이) */
+.inp-hold:focus-visible + .checkbox-label::before {
+  outline: 4px solid #fd0303;
+  outline-offset: 5px;
+}
+
+outline-offset: 5px;
+
+.checkbox-label {
+  font-size: 16px;
+  color: #767676;
+  cursor: pointer;
+}
+
+.box-lgin {
+  color: white;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #2f80ed;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.find {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #767676;
+}
+
+.or {
+  font-size: 14px;
+  color: #767676;
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+}
+
+.or::before {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 1px;
+  left: 0;
+  top: 50%;
+  background-color: #c4c4c4;
+}
+
+.or::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 1px;
+  right: 0;
+  top: 50%;
+  background-color: #c4c4c4;
+}
+
+.others li:first-child {
+  margin-top: 20px;
+}
+
+.others li {
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  height: 50px;
+  color: #767676;
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+li.google {
+  border: 1px solid #767676;
+  border-radius: 5px;
+  background: url(../img/Google.svg) no-repeat 10px center / 1.8em;
+}
+
+li.facebook {
+  border: 1px solid #2d9cdb;
+  border-radius: 5px;
+  background: url(../img/facebook.svg) no-repeat 10px center / 1.8em;
+}
+
+li.naver {
+  border: 1px solid #00bf18;
+  border-radius: 5px;
+  background: url(../img/Naver.svg) no-repeat 10px center / 1.8em;
+}
+
+li.kakao {
+  border: 1px solid #f2c94c;
+  border-radius: 5px;
+  background: url(../img/Kakao.svg) no-repeat 10px center / 1.8em;
+}

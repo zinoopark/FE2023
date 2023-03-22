@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input checkbox custom</title>
+  <style>
+    .txt-hide {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+    }
+
+    .labl-hold {
+      /* label은 인라인 속성이므로, */
+      display: inline-block;
+      position: relative;
+      margin: 20px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .labl-hold::before {
+      /* 처음에 가상요소는 텍스트 baseline에 걸려있을 거임.  */
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      margin-right: 5px;
+      vertical-align: -5px;
+      border: 1px solid black;
+    }
+
+    .inp-hold:focus-visible+.labl-hold::before {
+      /* 보더로 표현하면 크기를 차지해서 안됨. 아웃라인이나 박스쉐도우 이용 */
+      outline: 2px solid black;
+      outline-offset: 3px;
+    }
+
+    .labl-hold::after {
+      position: absolute;
+      top: 2px;
+      left: 22px;
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: url(img/checkmark.png) no-repeat 0 0/ 22px;
+      transition: .3s ease;
+      opacity: 0;
+    }
+
+    .inp-hold:checked+.labl-hold::after {
+      left: 1px;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="inpHold" class="inp-hold txt-hide">
+  <label for="inpHold" class="labl-hold">로그인 상태 유지</label>
+
+</body>
+
+</html>
