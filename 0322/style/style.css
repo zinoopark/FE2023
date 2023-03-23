@@ -95,6 +95,22 @@ main {
   margin: 10px 0 16px;
 }
 
+/* 로그인 상태유지 checkbox 방법1) html에서 input 클래스에다가 a11을 주지 않고,인풋 선택자 자체에 가상요소를 주는 대신 appearance none을 주고, 직접 배경을 삽입한 코드이다. 그러므로 이미지가 나타나는 선택자 역시 인풋 자기자신에게 :checked를 주며 동작하게 한다. 이는 라벨에 가상요소를 주는 방식과는 선택사항. */
+/* .inp-hold {
+  appearance: none;
+  background: url(../img/check_empty.png);
+  width: 22px;
+  height: 22px;
+  vertical-align: bottom;
+  margin-right: 5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.inp-hold:checked {
+  background: url(../img/check.png) no-repeat;
+} */
+
+/* 로그인 상태유지 checkbox 방법2) 라벨(글씨부분)에는 비포어 가상요소로, 가상요소안에 빈체크박스 이미지를 넣어 배치했고, 참고로 인풋(여기서는 인풋타입 checkbox) 실제로 체크되고, 포커스되는 실질적인 부분이기 때문에, 인풋에는 a11요소와 일반 클래스 2개.(a11y-hidden과 inp-hold) 그래서 아래 코드는 .inp-hold:checked됐을때, 그 아래 포함되는 .checkbox-label(해당 인풋에 포함되는 라벨의 클래스이름)의 가상요소에 백그라운드 이미지(꽉찬 이미지)를 주겠다는 코드임. */
 .checkbox-label::before {
   display: inline-block;
   content: "";
@@ -105,8 +121,6 @@ main {
   background: url(../img/check_empty.png) no-repeat;
   transition: 0.3s ease;
 }
-
-/* 라벨(글씨부분)에는 비포어 가상요소로, 가상요소안에 빈체크박스 이미지를 넣어 배치했고, 참고로 인풋(여기서는 인풋타입 checkbox) 실제로 체크되고, 포커스되는 실질적인 부분이기 때문에, 인풋에는 a11요소를 위한 2개 클래스를 줬따.(a11y-hidden과 inp-hold) 그래서 아래 코드는 .inp-hold:checked됐을때, 그 아래 포함되는 .checkbox-label(해당 인풋에 포함되는 라벨의 클래스이름)의 가상요소에 백그라운드 이미지(꽉찬 이미지)를 주겠다는 코드임. */
 .inp-hold:checked + .checkbox-label::before {
   background: url(../img/check.png) no-repeat;
 }
@@ -116,8 +130,6 @@ main {
   outline: 4px solid #fd0303;
   outline-offset: 5px;
 }
-
-outline-offset: 5px;
 
 .checkbox-label {
   font-size: 16px;
