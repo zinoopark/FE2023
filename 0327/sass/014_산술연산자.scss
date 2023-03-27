@@ -1,0 +1,20 @@
+.one {
+  font-size: 10px + 10px;
+}
+
+.two {
+  font-size: 30px - 10px;
+}
+
+.three {
+  font-size: 10px * 2;
+}
+
+.four {
+  //px도 나누기가 되기때문에 한 쪽에만 써준다.
+  font-size: (20px / 10);
+}
+
+.five {
+  font-size: 8px % 3;
+}

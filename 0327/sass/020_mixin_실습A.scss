@@ -1,0 +1,48 @@
+@mixin flex($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: $direction;
+}
+
+@mixin box($length, $radius) {
+  width: $length;
+  height: $length;
+  border-radius: $radius;
+}
+
+.card {
+  @include flex(center);
+  .card-itme {
+    @include box(100px, 10%);
+  }
+}
+.product {
+  @include flex(right);
+  .product-item {
+    @include box(200px, 20%);
+  }
+}
+// @mixin box($value) {
+//   width: 100px;
+//   height: 100px;
+//   @if ($value == "circle") {
+//     border: 1px solid black;
+//     border-radius: 50%;
+//   }
+//   @if ($value == "rect") {
+//     border: 1px solid black;
+//     border-radius: 10%;
+//   }
+// }
+
+// //blue
+// .card {
+//   @include box("circle");
+//   background-color: blue;
+// }
+
+// //red
+// .profile {
+//   @include box("rect");
+//   background-color: red;
+// }

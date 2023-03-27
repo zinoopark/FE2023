@@ -1,0 +1,11 @@
+$hojun: 5;
+
+// 최초 5가 들어가면 $hojun은 4가되므로 4(5-1)부터해서 3(4-1), 2(3-1), 1(2-1)이 됨
+@while $hojun > 1 {
+  $hojun: $hojun - 1;
+  .content-#{$hojun} {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+}

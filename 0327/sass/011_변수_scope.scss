@@ -1,0 +1,13 @@
+.one {
+  // 지역변수 -> global 다른데에서도 전역으로 쓸 수 있지만 사용 권장 XXX
+  $value: red !global;
+  color: $value;
+
+  .three {
+    background-color: $value;
+  }
+}
+
+.two {
+  color: $value;
+}

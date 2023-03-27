@@ -1,0 +1,14 @@
+.one {
+  // 지역변수
+  $value: red;
+  color: $value;
+
+  .three {
+    background-color: $value;
+  }
+}
+
+// .two {
+//   // 위에서 지역으로 선언된 변수이기 때문에 에러가 뜸.
+//   color: $value;
+// }

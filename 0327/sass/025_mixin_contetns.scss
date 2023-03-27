@@ -1,0 +1,24 @@
+@mixin one {
+  width: 100px;
+  height: 100px;
+  color: white;
+  // @include one에서 { }열고 안에 쓰는 값들이 여기 위치(@content)에 들어감
+  @content;
+}
+
+.test1 {
+  @include one;
+}
+
+.test2 {
+  @include one {
+    background-color: red;
+  }
+}
+
+.test3 {
+  @include one {
+    background-color: red;
+    font-size: 32px;
+  }
+}
