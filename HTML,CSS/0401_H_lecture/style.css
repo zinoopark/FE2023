@@ -1,0 +1,234 @@
+/* Reset------------ */
+@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+* {
+  margin: initial;
+  padding: initial;
+  box-sizing: border-box;
+  font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
+}
+
+ul,
+li {
+  list-style: none;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border-style: none;
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  background: #d97652;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover {
+  background: none;
+  color: #d97652;
+  outline: 1px solid #d97652;
+}
+img {
+  vertical-align: top;
+}
+.a11y-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input {
+  border-style: none;
+}
+
+.l-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* header-------------------------------- */
+
+.l-wrapper.header {
+  padding-top: 26px;
+}
+.box-header {
+  background-color: #f2e9d8;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+.header-lists {
+  display: flex;
+  gap: 30px;
+  margin-right: 40px;
+}
+
+.sect1 {
+  padding-top: 200px;
+  padding-bottom: 262px;
+  background: url(img/cat_1.png) no-repeat right bottom;
+}
+
+.sect1 h2 {
+  font-size: 48px;
+}
+.sect1 p {
+  width: 439px;
+  margin: 40px 0;
+  font-size: 16px;
+}
+
+/* main-------------------------------- */
+.sect2 {
+  margin-top: 80px;
+}
+.sect2 figure {
+  display: flex;
+  gap: 110px;
+}
+.sect2 figure h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 36px;
+}
+.sect2 img {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  width: 100%;
+}
+.sect3 {
+  margin: 120px 0;
+}
+.sect3-top {
+  text-align: center;
+}
+.sect3-top h2 {
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  color: #d97652;
+}
+.sect3-top p {
+}
+.sect3-top p strong {
+  color: #d97652;
+}
+.sect3-slide {
+  display: flex;
+  justify-content: space-between;
+  margin: 88px 0 90px;
+  gap: 20px;
+}
+.sect3-slide li img {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  width: 100%;
+}
+.sect3-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 72px;
+}
+.sect3-bottom p {
+  max-width: 739px;
+  text-align: left;
+}
+.atcl-contents h3 {
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: 36px;
+}
+.atcl-contents p {
+  font-size: 14px;
+  font-weight: 400;
+}
+.atcl-widget {
+  display: flex;
+  gap: 140px;
+  align-items: center;
+  background-color: #263140;
+  color: white;
+  padding: 50px 58px;
+  border-radius: 30px;
+  /* 아래 고양이 끌어와 */
+  margin-bottom: -93px;
+}
+
+.sub-form {
+  position: relative;
+  flex-grow: 1;
+}
+
+.sub-form::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  transform: translateY(-48%);
+  left: 30px;
+  background: url(img/mail.svg);
+  z-index: 10;
+}
+
+.sub-form input {
+  background-color: white;
+  padding: 20px 135px 20px 68px;
+  border-radius: 60px;
+  position: relative;
+  /* 이거 100프로 안주면 인풋 따로 버튼 따로인데, 줘야지 버튼 영역까지 늘려짐. 버튼이 인라인(혹은 인라인블록)이어서. 그러니까 100프로를 줘서 form안에 input btn이 있으니 btn아래까지 인풋영역 확장. */
+  width: 100%;
+}
+
+.sub-form button {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+/* //z인덱스는 position: static;에 가로막힌다. 메모 */
+.cat-bg {
+  z-index: -1;
+  position: relative;
+  height: 340px;
+  background: url(img/cat_bg.png) center / cover;
+}
+
+/* footer-------------------------------- */
+.l-wrapper.footer {
+  padding: 45px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-sns img {
+  width: 42px;
+}
+.footer-sns a + a {
+  margin-left: 20px;
+}
+
+
+-플렉스 박스안에 버튼은 꽉차버려서. 가운데 정렬하든지 해야함.
+-z인덱스는 static에서 안먹음.
+-플렉스 박스안에 플렉스 박스.. 스페이스 비트윈 안되는 문제. 
+-아티클 안에 내용물 플렉스 박스인데, form안에 lable,input,btn있는데 form에 grow1줘서 인풋크기 플렉스 박스안에서 최대로 늘려줌.
