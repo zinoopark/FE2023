@@ -1,6 +1,8 @@
 // json generator
 // https://json-generator.com/
 // json는 원래 js안에 있던 자료형이었는데, 워낙 많이 써서 독립시켰다.
+
+
 let 회원정보 = [
   {
     _id: "642a62272cc1f9d7749d83c6",
