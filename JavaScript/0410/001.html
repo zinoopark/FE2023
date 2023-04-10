@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <p>hello</p>
+  <p>hello</p>
+  <p id="myTxt">hello</p>
+  <p class="txt1">hello</p>
+  <p class="txt1">hello</p>
+  <p>hello</p> -->
+  <!-- <script>
+    // 전달인자는 id이름(문자열로), 메서드 명의 카멜케이스 주의
+    console.log(document.getElementById('myTxt'));
+    console.log(document.getElementsByTagName('p'));
+    console.log(document.getElementsByClassName('txt1'));
+
+    // 이젠 변수에 저장해놓고 쓸 수 있다.
+    const element = document.getElementsByClassName('txt1');
+
+
+  </script> -->
+  <article id="container">
+    <ul>
+      <li>탕수육</li>
+      <li class="item-second">유산슬</li>
+      <li>짜장면</li>
+    </ul>
+  </article>
+  저녁 식단
+  <article>
+    <ul>
+      <li>된장국</li>
+      <li class="item-second">김치찌게</li>
+      <li>해장국</li>
+    </ul>
+  </article>
+
+  <script>
+    // 유산슬에 접근하려면? li중에 2번째
+    // 객체 in 객체로 접근하려면 .을 찍어서 접근가능하지만 숫자나 특수기호는 []로 감싸서 곽 괄호로 가능. .[]는 틀린것임
+    console.log(document.getElementsByTagName('li')[1]);
+    // 또는 class이름 item-second중에 첫번째
+    console.log(document.getElementsByClassName('item-second')[0]);
+
+    // 이런식으로 변수선언을 하고 document자리에 변수이름을 사용 수도 있다.
+    const container = document.getElementById('container');
+    console.log(container.getElementsByTagName('li'));
+
+    // querySelector로 query질문..selector셀럭터에게.. css선택자로 단일 요소에 접근이 가능하하다. 찾는 대상이 여러개(li는 여러개라서, li를 찾으면 맨위의 탕수육이 반환됨.)라면 첫번째 요소를 반환.
+    console.log(container.querySelector('li'));
+    console.log(container.querySelector('.item-second'));
+    console.log(document.querySelectorAll('li'));
+    console.log(container.querySelectorAll('li'));
+    console.log(container.querySelector('li:last-child'));
+
+
+    // HTMLCollection과 NodeList의 차이.. 
+    console.log(container.getElementsByTagName('li'));
+    console.log(container.querySelectorAll('li'));
+
+
+
+    const listItem = document.createElement('li'); //js로 요소를 직접 만드는 메서드.. 만들어서 변수에 저장하겠다는 뜻 여기까지는 메모리의 영역. 눈에 안보여요.
+    container.append(listItem) //위 변수를 렌더링 되어있는 DOM에 배치 해야한다. ul의 형제로 li가 생김.. HTML(getElement~)은 즉시반영되지만 NodeList(querySelector~)는 append아래로 내리지 않는한 바로 반영되지 않는다..(자세한 내용은 교안참고)
+    // const target = document.querySelector('.item-second');
+    // target.remove();
+
+    container.querySelector('.item-second').textContent = '라조기';
+    container.querySelector('.item-second').classList.add('new');
+  </script>
+</body>
+
+</html>

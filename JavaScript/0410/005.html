@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소 제어2</title>
+</head>
+
+<body>
+  <ul></ul>
+  <button>Make me MORE!</button>
+  <script>
+    const myBtn = document.querySelector("button");
+    const myUl = document.querySelector("ul");
+
+    myBtn.addEventListener('click', function () {
+      for (let i = 0; i < 5; i++) {
+        const myLi = document.createElement('li');
+        const btnDel = document.createElement('button'); //del버튼이라도 '생성'의 단계는 거쳐야함.
+        const btnTxt = document.createTextNode = '버튼';
+
+        myUl.appendChild(myLi);
+        myLi.append('삭제하기: ', btnDel);
+        btnDel.append(btnTxt); //append 는 여러 요소를 한번에 넣을 수도, 텍스트도 자식 노드로 포함 시킬 수 있음. del버튼에 '버튼'텍스트 삽입(append->btnTxt)
+        btnDel.addEventListener('click', () => {
+          myLi.remove(); // myLi 자체가 사라짐
+        });
+      }
+    });
+
+  </script>
+</body>
+
+</html>

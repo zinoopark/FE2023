@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title name</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+  <article class="start"> <!-- 시작화면 -->
+    <h1 class="mt-5 text-center">나랑 꼭 닮은 세렝게티 동물은?</h1>
+    <button type="button" class="btn btn-primary mt-5" onclick="start();">테스트 시작하기</button>
+  </article>
+
+  <article class="question"> <!-- 문제화면 -->
+    <div class="progress mt-5" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+      aria-valuemax="100">
+      <div class="progress-bar" style="width: calc(100/12*1%)"></div>
+    </div>
+    <h2 id="title" class="text-center mt-5">문제</h2>
+    <!--클릭마다 EI값이 나오도록 하여, EI의 벨류값 까지 닿도록, id='EI'인 아래 인풋태그에 1씩 쌓도록 하는 중간다리 히든인풋 -->
+    <input id="type" type="hidden" value="EI">
+    <!-- 문제를 구성할때, 윗쪽 버튼(A)에는 ESTJ에만 해당하는 것이 나오도록. 아래 $('#A').click(function ()) 함수에서 A버튼을 눌렀을 때에만 점수를 할당하는 펑션을 이용해서 A버튼에만 점수를 할당하게 함.-->
+    <button id="A" type="button" class="btn btn-primary mt-5">primary</button>
+    <button id="B" type="button" class="btn btn-primary mt-5">primary</button>
+  </article>
+  <article class="result"> <!-- 결과화면 -->
+    <img id="img" class="rounded-circle mt-5" src="lion.jpg" alt="사자">
+    <h2 id="animal" class="text-center mt-5">동물이름</h2>
+    <h3 id="explain" class="text-center mt-5">설명</h3>
+  </article>
+
+  <!-- 점수를 저장하는 점수창. 눈에는 보이지 않음. 화면 외부적으로는 보이지 않고 내부적(hidden type)으로 점수가 쌓이도록 하고 싶을 때 이렇게 사용함. 최종적으로는, 각 id당(EI, SN, TF, JP) 쌓인 점수(value)가 2점 이상이면 전자(ESTJ), 그렇지 않으면 후자(INFP)항목을 선택되게.-->
+  <input type="hidden" id="EI" value="0">
+  <input type="hidden" id="SN" value="0">
+  <input type="hidden" id="TF" value="0">
+  <input type="hidden" id="JP" value="0">
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // 현재 몇번 문제인지(초기에는 1번문제로 설정) 문제들에 대한 정보
+    let num = 1;
+    let q = {
+      1: { "title": "문제 1번", "type": "EI", "A": "E", "B": "I" },
+      2: { "title": "문제 2번", "type": "EI", "A": "E", "B": "I" },
+      3: { "title": "문제 3번", "type": "EI", "A": "E", "B": "I" },
+      4: { "title": "문제 4번", "type": "SN", "A": "S", "B": "N" },
+      5: { "title": "문제 5번", "type": "SN", "A": "S", "B": "N" },
+      6: { "title": "문제 6번", "type": "SN", "A": "S", "B": "N" },
+      7: { "title": "문제 7번", "type": "TF", "A": "T", "B": "F" },
+      8: { "title": "문제 8번", "type": "TF", "A": "T", "B": "F" },
+      9: { "title": "문제 9번", "type": "TF", "A": "T", "B": "F" },
+      10: { "title": "문제 10번", "type": "JP", "A": "J", "B": "P" },
+      11: { "title": "문제 11번", "type": "JP", "A": "J", "B": "P" },
+      12: { "title": "문제 12번", "type": "JP", "A": "J", "B": "P" }
+      // 타입별로 총 3문제씩 12개의 문제 생성
+    }
+
+    let result = {  // 각각의 mbti정보들을 key로 하는 정보들을 저장해주겠음
+      "ISTJ": { "animal": "하마", "explain": "하마 설명", "img": "lion.jpg" },
+      "ISFJ": { "animal": "부엉이", "explain": "부엉이 설명", "img": "lion.jpg" },
+      "INFJ": { "animal": "물소", "explain": "물소 설명", "img": "lion.jpg" },
+      "INTJ": { "animal": "치타", "explain": "치타 설명", "img": "lion.jpg" },
+      "ISTP": { "animal": "나무늘보", "explain": "나무늘보 설명", "img": "lion.jpg" },
+      "ISFP": { "animal": "거북이", "explain": "거북이 설명", "img": "lion.jpg" },
+      "INFP": { "animal": "코끼리", "explain": "코끼리 설명", "img": "lion.jpg" },
+      "INTP": { "animal": "침팬지", "explain": "침팬지 설명", "img": "lion.jpg" },
+      "ESTP": { "animal": "악어", "explain": "악어 설명", "img": "lion.jpg" },
+      "ESFP": { "animal": "미어캣", "explain": "미어캣 설명", "img": "lion.jpg" },
+      "ENFP": { "animal": "멋쟁이 사자", "explain": "멋쟁이 사자 설명", "img": "lion.jpg" },
+      "ENTP": { "animal": "태양새", "explain": "태양새 설명", "img": "lion.jpg" },
+      "ESTJ": { "animal": "기린", "explain": "기린 설명", "img": "lion.jpg" },
+      "ESFJ": { "animal": "고릴라", "explain": "고릴라 설명", "img": "lion.jpg" },
+      "ENFJ": { "animal": "카피바라", "explain": "카피바라 설명", "img": "lion.jpg" },
+      "ENTJ": { "animal": "호랑이", "explain": "호랑이 설명", "img": "lion.jpg" }
+    } //결과 정보와 결과화면 (article - result)을 연결시키자
+
+
+    function start() {
+      $('.start').hide();
+      $('.question').show();
+      next(); //바로 문제 화면(첫 문제)이 보이도록.
+    }
+
+    // 클릭시 간단하게 각 줄을 설명하면, 타입 정보를 가져와서 그 타입의 값에서 1을 올려주고 다음문제로 넘어간다.
+    $('#A').click(function () {  // A버튼 클릭에 대한 익명함수(함수 속 함수)생성
+      let type = $('#type').val(); // val은 타입의 벨류값을 가져옴. 타입을 가져와서, 타입에 해당하는 태그를 선택해서 값을 올려주자. 이것의 경우는, 콘솔에서 EI를 출력
+      let preValue = $('#' + type).val(); // EI를 출력했으니 그것이 type자리에 들어가고, 타입에 해당하는 id(EI)를 가진 태그를 선택해서 값을 올려주자. 초기값은 0이므로 해당줄만 콜솔로그해보면 0이 나온다. 결국  preValue 라는 변수는 초기 0을 출력해줌.
+      $('#' + type).val(parseInt(preValue) + 1); // parseInt를 안해주면 0이라는 문자열 상태로 남기 때문에 덧잎혀주고, 최종적으로 클릭시부터 지금까지~초깃값(parseInt(preValue)=0)에 1씩 더해줌. 클릭마다 1씩 쌓임.
+      next(); //아래 함수 실행
+    });
+    $('#B').click(function () { //점수는 A버튼에만 할당해준다고 했으니(A버튼 점수의 나머지가 B점수가 되니까), B는 클릭시 넥스트 함수만 넣어준다.
+      next();
+    });
+
+
+    // 해당 함수 실행시, 다음 문제로 넘어가면서, 문제랑 버튼들이 다음 문제들과 관련된 정보로 바꿔줘라.! 쉽게 말하면, 이 함수 실행시, id가 title, type, A, B 인 태그들의 정보가 q배열에 있는 정보들로 바뀐다는 거임. num초기 값은 1이므로 처음엔 1, 다음 눌렀을 땐 num++ 가 있으니 2번 배열에 있는 정보들을 제공해주겠죠.
+    function next() {
+      if (num == 13) { //마지막 문제일 때 조건문
+        $('.question').hide();
+        $('.result').show();
+        let mbti = '';
+        // if($('#EI').val() < 2){
+        //   mbit = mbti + "I";  //2점 미만이면 I를 선택
+        // } else {
+        //   mbti = mbti + "E"; //2점 이상이면 E를 선택
+        // }
+        // if-else 구문은 삼항연산자로 표현가능하다.
+        ($('#EI').val() < 2) ? mbti += "I" : mbti += "E"; //mbti를 이루는 문장에 조건에 의해 출력된 알파벳들을 더해줌
+        ($('#SN').val() < 2) ? mbti += "N" : mbti += "S";
+        ($('#TF').val() < 2) ? mbti += "F" : mbti += "T";
+        ($('#JP').val() < 2) ? mbti += "P" : mbti += "J";
+        alert(mbti + '!!');
+        $('#img').attr('src', result[mbti]['img']); // 결정된 변수 mbti에 의한 result 이름의 오브젝트(객체)로 접근해서 img키에 대한 값을 불러옴.
+        $('#animal').html(result[mbti]['animal']);    //html태그 안쪽 값을 바꾸는 것이기 때문에 .html설정. 그중에서 애니멀 이름에 대한 키값
+        $('#explain').html(result[mbti]['explain']);    // 같은 방식으로 동물 설명에 대한 키값 호출
+
+      } else { //13번째 문제가 끝P면 아래것이 더이상 실행되지 안도록.
+        $('#title').html(q[num]["title"]); //html내용('문제') 어떤내용으로 바뀔지, q에서 몇번째 문제를 나타내는 num(초기값은 1)을 가져오고, 그 문제의 title을 가져오는 내용.
+        $("#type").val(q[num]["type"]);  //id가 type인 히든인풋의 벨류값을 바꿔줘야해.
+        $('#A').html(q[num]["A"]);  //A와B 버튼에 해당하는 문제들도 바꿔준다.
+        $('#B').html(q[num]["B"]);
+        $('.progress-bar').attr('style', 'width: calc(100/12*' + num + '%)'); //attr이라는 제이쿼리 메소드로 태그의 속성을 바꿔주는, style속성의 width 값을, 그중에서 ++사이에 변수 num의 숫잣값의 변화에 따라 width가 변화
+        num++; //num을 1씩 증가 시켜줘야 2번,3번 문제 순으로 넘어감
+      }
+    }
+
+  </script>
+</body>
+
+</html>

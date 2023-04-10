@@ -1,0 +1,35 @@
+최상위 객체 window는 DOM BOM JavaCript로 이루어져있다..
+
+BOM API는 예를 들어 console.log, alert.. 
+
+자바스크립트의 엔진..
+크롬같은 경우는 v8
+
+
+DOM은 HTML문서의 내용을 트리형태로 구조화(DOM parsing)해서 웹페이지와 프로그래밍 언어를 연결해주는 역할. 각각의 요소와 속성, 콘텐츠를 표현하느 단위를 '노드(node)'라고 함.
+
+자바스크립트로 HTML을 제어하는 첫 단계는 요소를 찾아보는 것이다..
+
+우리는 자바스크립트를 통해 이 DOM 트리에 접근 가능하다. document객체를 통해 HTML문서의 진입점 역할을 수행함..
+
+객체안에 있는 객체에 접근하는것은 점을 찍어서 접근..
+그러나 숫자를 바로 뒤에 찍으면 변수식별자 기법에 어긋나서 ..(숫자x,특수문자x)배열처럼 곽 괄호로 ..키에 접근가능 [0] (.[0]아님)
+
+getElement~ -HTMLCollection 생성제거 즉시반영
+querySelector~ -NodeList 생성제거 즉시반영x 하지만  (HTML컬렉션 Node리스트얘네는 유사객체.. NodeList는 forEach등 사용가능mdn 검색해 볼 것)
+기존 요소를 바꾸는 것은 둘다 즉시 반영
+
+DOM제어 명령어
+이벤트삽입
+addEventListener라는 메서드.. 이벤트의 타입에는 click, mouseover, mouseout, wheel 등 다양한 이벤트를 감지.. 그안에 콜백함수를 리스너함수라고도 한다.. 계속 주의깊게 듣고있다가.. 예를들면 클릭했ㄷ!! 라고 하면 함수실행..
+
+클래스 제어
+classList객체를 통해 요소의 class 속성을 제어할 수 있습니다.
+
+요소제어
+DOM api를 이용하면 요소를 새롭게 생성하고, 위치하고, 제거할 수 있습니다.
+
+1. document.createElement(target) : target 요소를 생성합니다.
+2. document.createTextNode(target) : target 텍스트를 생성합니다.
+3. element.appendChild(target) : target 요소를 element의 자식으로 위치합니다.
+4. element.removeChild(target) : element의 target 자식 요소를 제거합니다.

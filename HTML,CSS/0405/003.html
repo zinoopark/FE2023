@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>꽉찬 영상</title>
+  <style>
+    .full-screen-vid {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* min-width: 100%; */
+      min-height: 100%;
+      pointer-events: none;
+      filter: brightness(0.4);
+      z-index: -10;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <h2>이것은 백그라운드 영상입니다.</h2>
+
+  <video class="full-screen-vid" autoplay loop muted src="nextlevel.mp4"></video>
+
+</body>
+
+</html>

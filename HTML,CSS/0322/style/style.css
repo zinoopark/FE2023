@@ -39,8 +39,11 @@ a {
 }
 
 /* layout */
+.wrapper2 {
+  padding: 0 20px;
+}
 .wrapper {
-  width: 520px;
+  max-width: 520px;
   margin: 100px auto;
   background-color: white;
   position: relative;
@@ -118,11 +121,13 @@ main {
   height: 22px;
   margin-right: 7px;
   vertical-align: bottom;
-  background: url(../img/check_empty.png) no-repeat;
+  background: url(../img/sprite_retina_checked.png) no-repeat -5px -5px / 64px
+    32px;
   transition: 0.3s ease;
 }
 .inp-hold:checked + .checkbox-label::before {
-  background: url(../img/check.png) no-repeat;
+  background: url(../img/sprite_retina_checked.png) no-repeat -37px -5px / 64px
+    32px;
 }
 
 /* 이건 인풋이 포커스드 됐을 때 안보이게 해준다는 명령을, 그 가상요소에 주는것임.(기능은 input이, 보여지는건 label이) */
@@ -210,26 +215,30 @@ h2 {
   margin-bottom: 10px;
 }
 
+.others li {
+}
+
 li.google {
   border: 1px solid #767676;
   border-radius: 5px;
-  background: url(../img/Google.svg) no-repeat 10px center / 1.8em;
+  background-position: 3px -144px;
+  background: url(../img/sprite_retina_sns.png) no-repeat 10px 4px / 38px 152px;
 }
 
 li.facebook {
   border: 1px solid #2d9cdb;
   border-radius: 5px;
-  background: url(../img/facebook.svg) no-repeat 10px center / 1.8em;
+  background: url(../img/sprite_retina_sns.png) no-repeat 10px -33px / 38px 152px;
 }
 
 li.naver {
   border: 1px solid #00bf18;
   border-radius: 5px;
-  background: url(../img/Naver.svg) no-repeat 10px center / 1.8em;
+  background: url(../img/sprite_retina_sns.png) no-repeat 10px -70px / 38px 152px;
 }
 
 li.kakao {
   border: 1px solid #f2c94c;
   border-radius: 5px;
-  background: url(../img/Kakao.svg) no-repeat 10px center / 1.8em;
+  background: url(../img/sprite_retina_sns.png) no-repeat 10px -108px / 38px 152px;
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소제어</title>
+</head>
+
+<body>
+  <ul></ul>
+  <button>Make me MORE!</button>
+  <script>
+    const myBtn = document.querySelector("button"); //button 선택해
+    const myUl = document.querySelector("ul"); //ul 선택해
+
+    myBtn.addEventListener('click', function () {
+      for (let i = 0; i < 5; i++) { //5번 반복하는동안 5개의 li를 생성
+        const myLi = document.createElement('li');
+        const myText = document.createTextNode(i); //i 마다 텍스트를 생성
+        myLi.appendChild(myText);
+        myUl.appendChild(myLi); //위에서 생성한 myUl(ul선택)의 변수에 자식으로서 myLi를 첨부(append) 
+      }
+    })
+  </script>
+</body>
+
+</html>

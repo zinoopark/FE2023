@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      background-color: black;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box"></div>
+  <ul>
+    <li><button class="btn_red">빨강</button></li>
+    <li><button class="btn_yellow">노랑</button></li>
+    <li><button class="btn_green">초록</button></li>
+  </ul>
+  <!-- <script> 내 js코드
+    const myBox = document.querySelector(".box");
+    const redBtn = document.querySelector(".red_btn");
+    const yellowBtn = document.querySelector(".yellow_btn");
+    const greenBtn = document.querySelector(".green_btn");
+
+    redBtn.addEventListener('click', function () {
+      myBox.classList.remove("yellow", "green");
+      myBox.classList.toggle("red");
+    });
+    yellowBtn.addEventListener('click', function () {
+      myBox.classList.remove("red", "green");
+      myBox.classList.toggle("yellow");
+    });
+    greenBtn.addEventListener('click', function () {
+      myBox.classList.remove("red", "yellow");
+      myBox.classList.toggle("green");
+    });
+  </script> -->
+
+  <!-- sol -->
+  <!-- 핵심은 버튼을 눌렀을 때, 박스의 클래스 네이밍을 변화시켜줘야함 -->
+  <script>
+    const box = document.querySelector('.box')
+    const btns = document.querySelectorAll("button[class^='btn']") //btn으로 이름 끝나는 버튼전체선택
+
+    btns.forEach((el) => {  //어레이라이크 객체 순환
+      el.addEventListener('click', () => {
+        box.classList.remove('yellow', 'red', 'green');
+        if (el.classList.contains("btn_red")) { //t/f 반환
+          box.classList.add('red');
+        } else if (el.classList.contains("btn_yellow")) {
+          box.classList.add('yellow');
+        } else {
+          box.classList.add('green');
+        }
+      });
+    })
+
+    // redBtn.addEventListener('click', () => {
+    //   box.classList.add('red');
+    // });
+    // yellowBtn.addEventListener('click', () => {
+    //   box.classList.add('yellow');
+    // });
+    // greenBtn.addEventListener('click', () => {
+    //   box.classList.add('green');
+    // });
+  </script>
+
+  <!-- sol2 재영님 -->
+  <!-- <style>
+    div {
+      background-color: black;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    ul {
+
+      display: flex;
+      justify-content: center;
+      gap: 100px
+    }
+
+    div.red {
+      background-color: red;
+    }
+
+    div.yellow {
+      background-color: yellow;
+    }
+
+    div.green {
+      background-color: green;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div></div>
+    <ul>
+      <li><button type="button" class="red">빨강</button></li>
+      <li><button type="button" class="yellow">노랑</button></li>
+      <li><button type="button" class="green">초록</button></li>
+    </ul>
+    <script>
+      const box = document.querySelector("div");
+      const btn = document.querySelectorAll("button")
+      btn.forEach(a => a.addEventListener('click', function () {
+        box.className = ''
+        box.classList.add(a.className)
+      }))
+    </script> -->
+</body>
+
+</html>
