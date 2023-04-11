@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p></p>
+  <input type="text">
+  <button>Write Something!</button>
+  <script>
+    const myBtn = document.querySelector("button");
+    const myP = document.querySelector("p");
+    const myInput = document.querySelector("input");
+
+    myBtn.addEventListener('click', function () {
+      // myP.textContent = myInput.value;
+      // myP.innerHTML = myInput.value;
+      myP.innerText = myInput.value;
+    });
+    //input에 입력된 값(value)를 p의 텍스트 컨텐츠로 입력시켜줌.<p>textContent</p> textContent 와 innerHTML과의 차이점은 전달받는 문자열로 HTML코드속성을 생성(마크업)할 수 있음 .. 예를 들면 strong태그를 담아서 입력하면 그게 입력이 됨. 태그가 텍스트로 들어가는게 아니라 HTML태그로 들어감.. textContent 속성은 노드의 텍스트 콘텐츠를 표현합니다. 컨텐츠를 단순히 텍스트로만 다룹니다.
+  </script>
+</body>
+
+</html>

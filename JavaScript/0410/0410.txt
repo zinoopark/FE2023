@@ -16,7 +16,7 @@ DOM은 HTML문서의 내용을 트리형태로 구조화(DOM parsing)해서 웹�
 그러나 숫자를 바로 뒤에 찍으면 변수식별자 기법에 어긋나서 ..(숫자x,특수문자x)배열처럼 곽 괄호로 ..키에 접근가능 [0] (.[0]아님)
 
 getElement~ -HTMLCollection 생성제거 즉시반영
-querySelector~ -NodeList 생성제거 즉시반영x 하지만  (HTML컬렉션 Node리스트얘네는 유사객체.. NodeList는 forEach등 사용가능mdn 검색해 볼 것)
+querySelector~ -NodeList 생성제거 즉시반영x 하지만  (HTML컬렉션 Node리스트얘네는 유사 배열 객체.. NodeList는 forEach등 사용가능mdn 검색해 볼 것)
 기존 요소를 바꾸는 것은 둘다 즉시 반영
 
 DOM제어 명령어

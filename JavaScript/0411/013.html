@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 위임</title>
+  <link rel="stylesheet" href="../reset.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <article class="parent">
+    <ol>
+      <li><button class="btn-first" type="button">버튼1</button></li>
+      <li><button type="button">버튼2</button></li>
+      <li><button type="button">버튼3</button></li>
+    </ol>
+  </article>
+
+  <script>
+    const parent = document.querySelector('.parent');
+    parent.addEventListener('click', function (event) {
+      console.log(event.target);
+      if (event.target.nodeName === "BUTTON") {
+        event.target.innerText = "버튼4";
+      }
+    });
+    //실제로 버튼자체에게 이벤트를 단건 아니지만, 마치 버튼에게 이벤트가 달린 것 처럼 작동한다. 이것은 일종의 테크닉이다.
+  </script>
+</body>
+
+</html>

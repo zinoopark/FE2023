@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 객체</title>
+</head>
+
+<body>
+  <!-- 이벤트에서 호출되는 핸들러(리스너)에는 이벤트와 관련된 모든 정보를 가지고 있는 매개변수가 전송됩니다. 이것이 바로 이벤트 객체입니다! -->
+  <article class="parent">
+    <ol>
+      <li><button class="btn-first" type="button">버튼1</button></li>
+      <li><button type="button">버튼2</button></li>
+      <li><button type="button">버튼3</button></li>
+    </ol>
+  </article>
+  <script>
+    const btnFirst = document.querySelector('.btn-first');
+    btnFirst.addEventListener('click', (event) => {
+      console.log(event);
+    });
+  </script>
+</body>
+
+</html>

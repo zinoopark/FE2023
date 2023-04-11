@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 흐름</title>
+  <link rel="stylesheet" href="../reset.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <article class="parent">
+    <button class="btn" type="button">버튼</button>
+  </article>
+
+  <script>
+    const parent = document.querySelector('.parent');
+    const btnFirst = document.querySelector('.btn');
+    btnFirst.addEventListener('click', (event) => {
+      console.log("btn capture!");
+    }, true);
+
+    window.addEventListener('click', () => {
+      console.log("window capture!");
+    }, true); // true : 캡처링을 통해 이벤트가 발생(전파)하도록 합니다. false는 기본값이자 버블링이벤트가 일어남.
+
+    document.addEventListener('click', () => {
+      console.log("document capture!");
+    }, true);
+
+    parent.addEventListener('click', () => {
+      console.log("parent capture!");
+    }, true);
+
+    btnFirst.addEventListener('click', (event) => {
+      console.log("btn bubble!");
+    });
+
+    parent.addEventListener('click', () => {
+      console.log("parent bubble!");
+    });
+
+    document.addEventListener('click', () => {
+      console.log("document bubble!");
+    });
+
+    window.addEventListener('click', () => {
+      console.log("window bubble!");
+    });
+    // 타깃요소에 이벤트가 발생했을 때, 최상위 요소부터 자식요소를 타고 캡처링, 타깃이벤트 실행후, 부모요소를 타고 가는것을 버블링이라고 함.
+
+    //evenet객체에는 eventphase라는 속성이 있따. event.evetPhase를 해보면 이벤트 흐름의 단계르 나타내주는데, 캡쳐링 될때, 부모객체를 통해서 타깃이벤트까지 전달될때는 1, 타깃이벤트에 도착했을 때에는2, 역으로 버블링이벤트로 타고 올라갈때에는 3이다.
+  </script>
+</body>
+
+</html>
