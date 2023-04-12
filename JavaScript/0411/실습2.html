@@ -40,18 +40,18 @@
     const progressBar = mainForm.querySelector('.bar-progress'); // bar를 찾자
     const message = mainForm.querySelector('.msg-notice');
     const inputs = mainForm.querySelectorAll('input');
-    const btnReset = mainForm.querySelector('button[type="reset"]');
+    const btnReset = mainForm.querySelector('button[type="reset"]'); // botton중 reset 타입인 버튼을 셀렉
 
-    mainForm.addEventListener('keyup', () => { //키보드를 눌렀다가 땠을 때. 이벤트
-      let validCounter = 0;
-      inputs.forEach((item) => {
-        if (item.validity.valid) {//메인아이디어는 인풋들이 valid(내용이 차있는)한지 여부와 valid한 인풋들이 몇개인지가 중요함.. 인풋이 유효한지 아닌지에 대한 정보 메서드 .validity하고 콘솔에 뽑아보자. 그럼 쭉 나오는 항목중에 valid항목을 확인하면 됨.
+    mainForm.addEventListener('keyup', () => { //사용자가 키를 놓을 때 이벤트 발생
+      let validCounter = 0; //이게 중요한 대목이다. 이 갯수에 따라 아래 switch문에서 어떤 구문이 실행될지 결정한다.
+      inputs.forEach((item) => { //inputs는 각 text입력 박스이다. 이 박스들을 순회하는데, 만약 이 텍스트 창이 valid하다면(입력됐다면)
+        if (item.validity.valid) {//메인아이디어는 인풋들이 valid(내용이 차있는)한지 여부와 valid한 인풋들이 몇개인지가 중요함.. 인풋이 유효한지 아닌지에 대한 정보 메서드 .validity하고 콘솔에 뽑아보자. 그럼 쭉 나오는 항목중에 valid항목을 확인하면 됨. (validity : ValidityState를 나타내는 객체를 뜻한다.)
           validCounter++; //valid하다면 validCounter의 값이 올라감
         }
       });
-      switch (validCounter) { //input의 갯수는 최대 5개
-        case 1: //유효한 인풋이 1개일 경우 프로그레스 bar와 메세지가 바뀌어야 함.
-          message.textContent = "시작했습니다!"; //순수하게 텍스트를 대입
+      switch (validCounter) { //input의 갯수는 최대 5개, 그러므로 validCounter는 0으로 시작해서 5까지 변화 할 수 있다.
+        case 1: //유효한 인풋이 1개일 경우(validCounter=1) 프로그레스 bar와 메세지가 바뀌어야 함.
+          message.textContent = "시작했습니다!"; //각 상황마다 message내용에도 진행상황에 관한 텍스트도 입력. 순수하게 텍스트만 대입
           progressBar.setAttribute('value', '20');
           break;
         case 2:
@@ -76,9 +76,12 @@
       }
     });
 
-    btnReset.addEventListener('click', () => {
+    btnReset.addEventListener('click', () => { //초기화 버튼에 관한 이벤트리스너, 클릭되었을 때 message(.msg-notice)를 초기화 문구로 바꿔주고, 프로그레스바의 벨류값도 setAttribute를 이용하여 0으로 초기화해준다.
       message.textContent = "설문지를 작성하세요!";
       progressBar.setAttribute('value', '0');
+      // progressBar.value = 0;  이것도 가능
+
+
     })
   </script>
 </body>
