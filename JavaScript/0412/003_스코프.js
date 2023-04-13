@@ -7,7 +7,7 @@
 }
 
 console.log(a);
-console.log(b); //b부터 출력이 안됨. var은 함수스코프이기 블록으로 감싸도 전역으로 출력됨.
+console.log(b); //b,c 출력이 안됨. var은 함수스코프이기 블록으로 감싸도 전역으로 출력됨.
 console.log(c);
 
 // 지역변수와 전역변수
