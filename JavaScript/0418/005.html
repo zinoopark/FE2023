@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stopPropagation() 실습</title>
+</head>
+
+<body>
+
+  <h1>나의 todo list</h1>
+  <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
+  <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+  <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+  <script>
+    // 1.
+    //상위 하위 모두 이벤트가 걸려있을 때, 하위 이벤트가 실행되었을 때, 상위 이벤트가 다시 실행되는걸 방지하기 위해 stopPropagation을 사용한다.
+
+    // const p = document.querySelectorAll('p')
+    // const btn = document.querySelectorAll('button');
+
+    // p.forEach(el => {
+    //   el.addEventListener('click', () => {
+    //     alert(el.textContent.slice(0, -2))
+    //   })
+    // });
+
+    // btn.forEach(el => {
+    //   el.addEventListener('click', (e) => {
+
+    //     if (confirm('삭제할검니가?')) {
+    //       el.parentElement.remove()
+    //       e.stopPropagation()
+    //     }
+    //   })
+    // });
+
+    // 2.
+    // const todo = document.querySelectorAll('p')
+    // const btn = document.querySelectorAll('button')
+    // todo.forEach(item => {
+    //   item.addEventListener('click', () => {
+    //     alert(item.textContent.slice(3, -2));
+    //   })
+    // })
+    // btn.forEach(item => {
+    //   item.addEventListener('click', e => {
+    //     confirm('정말 삭제하실건가요?') ? item.parentElement.remove() : ''
+    //     e.stopPropagation();
+    //   })
+    // })
+
+    // 3.
+    // <script>
+    //     const p = document.querySelectorAll('p')
+    //     const cancel = document.querySelectorAll('button')
+
+    //     p.forEach((item) => {
+    //         item.addEventListener('click', (e) => {
+    //             if (!e.target.closest("button")) {
+    //                 alert(item.textContent.slice(0, -2));
+    //             }
+    //         })
+    //     })
+
+    //     cancel.forEach((btn) => {
+    //         btn.addEventListener('click', (e) => {
+    //             let can = confirm('정말 삭제하시겠습니까?')
+    //             if (can) {
+    //                 e.target.closest('p').remove();
+    //             }
+    //         })
+    //     })
+  </script>
+  </script>
+</body>
+
+</html>

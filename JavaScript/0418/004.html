@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stopPropagation</title>
+</head>
+
+<body>
+  <form action="">
+    <button type="submit" class="submit">제출</button>
+  </form>
+
+  <script>
+    const submit = document.querySelector('.submit');
+    submit.addEventListener('click', (event) => {
+      console.log('clicked');
+      event.preventDefault(); // sumbit새로고침은 막음
+      event.stopPropagation(); //이걸 키면 submit 아래로는 버블링 이벤트 흐름이 차단됨, 이전의 이벤트는 흘러가고있음. 근데 얘도 버블링 이벤트라서, 얘 이후에 발생하는 버블링을 차단한다고 생각하자.
+    });
+
+    document.body.addEventListener('click', () => {
+      console.log('event still alive!');
+    }); //이벤트리스너의 3번째 인자에 true -캡처링 , false-버블링/ 위에서 프로파게이션을 막으면 true넣어서 캡처링으로 변경하면 아랫것도 실행됨.
+  </script>
+</body>
+
+</html>
