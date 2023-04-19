@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 지향</title>
+</head>
+
+<body>
+  <script>
+    // const me = {
+    //   name: '웨이드',
+    //   address: '제주도 제주시 인다 1길',
+    //   phoneNum: '010-8001-6536',
+    //   canWalk: function () {
+    //     console.log('웨이드가 걷는다.');
+    //   },
+    //   teaching: function (myStudent) {
+    //     myStudent.levelUp();
+    //   }
+    // }
+
+    // const student = {
+    //   level: 1,
+    //   levelUp: function () {
+    //     this.level++;
+    //   }
+    // }
+
+    // me.teaching(student) //student 입력하면 student의 레벨이 올랐다!
+
+    // //이처럼 객체와 객체가 서로 메소드를 통해 상호작용하게 만드는 것을 바로 객체지향 프로그래밍이라고 할 수 있습니다.
+
+    const bed = {
+      name: 'cozy',
+      type: 'hard',
+      price: 'expensive',
+      canSleep: function (anyBody) {
+        anyBody.deepSleep();
+      }
+    }
+
+    const me = {
+      condition: 0,
+      deepSleep: function () {
+        this.condition++;
+      }
+    }
+
+    bed.canSleep(me)
+
+    //객체는 하나 생성하면 그걸로 끝이야. 객체 리터럴로 완전히 새로운 객체들을 생성해주는 것.
+    //똑같은 애들을 생성해줄 때 비효율 적이다.
+    //그럴때 효율적인 기능이 생성자(constructor)이다.
+    //미현님 코드 참고
+
+    const nor = {
+      name: '노르',
+      isLikeLionStudent: true,
+      project: 1,
+      rank: "bronze",
+
+      studying: function () {
+        this.project++;
+        this.rank = this.project >= 10 ? "grand-master" : "bronze";
+        console.log(`현재 진행한 프로젝트: ${this.project} 현재 랭크: ${this.rank}`);
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

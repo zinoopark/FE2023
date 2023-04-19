@@ -152,26 +152,36 @@
     //   btnSelect.classList.remove("on");
     // })
 
-    3.
-    const btn = document.querySelector('.btn-select');
-    const btns = document.querySelectorAll('li button')
+    // 3.
+    // const btn = document.querySelector('.btn-select');
+    // const btns = document.querySelectorAll('li button')
 
-    btn.addEventListener('click', function () {
-      if (!this.classList.contains('on')) {
-        this.classList.add('on');
-      }
-      else {
-        this.classList.remove('on')
-      }
+    // btn.addEventListener('click', function () {
+    //   if (!this.classList.contains('on')) {
+    //     this.classList.add('on');
+    //   }
+    //   else {
+    //     this.classList.remove('on')
+    //   }
+    // })
+
+    // btns.forEach(e => {
+    //   e.addEventListener('click', function () {
+    //     btn.textContent = this.textContent;
+    //     btn.classList.remove('on')
+    //   })
+    // })
+    const selectBtn = document.querySelector(".btn-select");
+    const list = document.querySelector(".list");
+
+    selectBtn.addEventListener("click", function () {
+      this.classList.toggle("on");
+    });
+
+    list.addEventListener("click", function (e) {
+      selectBtn.textContent = e.target.textContent;
+      selectBtn.classList.remove("on");
     })
-
-    btns.forEach(e => {
-      e.addEventListener('click', function () {
-        btn.textContent = this.textContent;
-        btn.classList.remove('on')
-      })
-    })
-
   </script>
 </body>
 

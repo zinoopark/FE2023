@@ -13,7 +13,7 @@
   <article id="app">
     <h2>포켓몬 캐러셀</h2>
     <ul class="list-item">
-      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/jammanbo.png" alt=""></li>
+      <!-- <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/jammanbo.png" alt=""></li>
       <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/ev.png?raw=true" alt="">
       </li>
       <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/mazayoung.png?raw=true" alt="">
@@ -22,11 +22,52 @@
       <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/nyaong.png" alt=""></li>
       <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/pulin.png" alt=""></li>
       <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/weirdseed.png" alt=""></li>
+      <img src="" alt=""> -->
     </ul>
   </article>
   <script>
-    const app = document.querySelector('#app')
-    const rotList = document.querySelector('ul')
+    const arrPic = [ //사진 정보들을 배열로 데려옴
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/mobugi.png",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/weirdseed.png",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/jammanbo.png",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/mazayoung.png?raw=true",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/ev.png?raw=true",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/pulin.png",
+      "https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/nyaong.png"
+    ];
+    const center = document.querySelector('.list-item');
+
+    arrPic.forEach((el) => { //각 el은 위 배열의 각 주소들
+      const elLi = document.createElement('li'); //노드생성
+      elLi.innerHTML = `<img src="${el}" alt="">` //노드생성 li뒤에 생성되는 아이
+      // const elImg = document.createElement('img'); innerHTML대안
+      center.append(elLi); //center의 자식으로 다다다다닥 붙겠습니다.
+    });
+
+    const items = document.querySelectorAll('.list-item li');
+
+    const radius = items[0].offsetWidth * items.length / 3.14 / 2; //offsetWidth는 너비.. items[0] 첫번째 li.. 
+    items.forEach((el, idx) => { //각 li들에 넣어줘야 할 속성 값들, idx는 인덱스로, css에서 li의 nth에 관련된 값들..
+      el.style.transform = `rotateY(${360 / items.length * idx}deg)  translateZ(${radius}px)`;
+    });
+
+
+    const angle = 360 / items.length; //item이 추가돼도 li개수에 따라 돌아갈 각도의 값
+    let currAngle = 0;
+
+    document.addEventListener('click', function (event) {
+      console.log(event)
+      // 오른쪽 눌렀을 경우
+      if (window.innerWidth / 2 < event.clientX) { //언제나 유저가 보이는 화면의 뷰포트 기준.. 스크롤, 듀얼모니터 등의 영향x(scrrenX와의 차이), console.log(event) 해서 속성들 열어보기
+
+        currAngle += angle;
+      } else {// 왼쪽 눌렀을 경우
+        currAngle -= angle;
+      }
+
+      center.style.transform = `translate(-50%, -50%) rotateY(${currAngle}deg)`; //속성은 문자열로 넣어줘야함.
+    });
+
 
   </script>
 </body>
