@@ -33,18 +33,3 @@ robot2.sayMenu() === robot3.sayMenu(); //true
 robot3.sayMenu() === robot1.sayMenu(); //true
 
 //이렇듯 프로토타입은 모든 인스턴스가 하나의 메서드를 공유하도록 만들어 자원을 더 효율적으로 사용하도록 도와줍니다.
-
-const nor = {
-  name: "노르",
-  isLikeLionStudent: true,
-  project: 1,
-  rank: "bronze",
-
-  studying: function () {
-    this.project++;
-    this.rank = this.project >= 10 ? "grand-master" : "bronze";
-    console.log(
-      `현재 진행한 프로젝트: ${this.project} 현재 랭크: ${this.rank}`
-    );
-  },
-};

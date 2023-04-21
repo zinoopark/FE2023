@@ -45,6 +45,7 @@
     robot1.sayMenu() === robot2.sayMenu() // false 코드 입장에서 보면 비효율적임. 새로운 함수를 계속 생성해내기 때문에. 이것은 prototype으로 해결할 수 있다.
 
     //함수가 생성되면 숨겨진 프로퍼티 prototype이라는 프로퍼티가 생성된다. 특정 객체에 대한 참조.. 생성자 함수로 인스턴스를 생성하면 역시 [[Prototype]] 가 생성되는데 이는 __proto__로 표현됩니다. __proto__는 자신을 만든 생성자 함수의 prototype을 참조합니다. 즉, 연결됩니다.
+    // (생성자)함수는 prototype과 __proto__모두 갖는다 . 하지만 인스턴스는 오직 __proto__만을 가진다.
 
     //prototype란 특정 객체에 대한 참조입니다. 
 

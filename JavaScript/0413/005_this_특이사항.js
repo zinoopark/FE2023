@@ -57,11 +57,11 @@ let a = () => {
       console.log(this);
       console.log(this.name);
     };
-    c();
+    c(); //window,그리고 빈값. name이 없음
   };
-  b();
+  b(); //window, 그리고 빈값. name이 없음
 };
-a()
+a() //window, 그리고 빈값. name이 없음
   [
     /////
     // 메서드 콜백함수에서 this로 사용할 값을 제공할 수도 있다.

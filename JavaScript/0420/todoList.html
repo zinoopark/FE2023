@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+</head>
+
+<body>
+  <script>
+
+    // 간단한 투두 리스트기능 구현해보기
+    // 1. 해야할 일 Todo 클래스 (내용, 상태 두 가지 프로퍼티를 가집니다.)
+
+    // 2. Todo 클래스는 상태를 변경하는 changeState 메서드를 가집니다.
+
+    // 3. 할일의 목록을 관리하는 관리자를 추상화한 TodoManager 클래스 (할일 목록을 프로퍼티로 가집니다.)
+
+    // 4. 할 일을 저장하고(addItem), 할 일의 목록을 보여주며(getItems), 할 일의 남은 갯수를 반환하는(getLeftTodoCount) 세 가지 메소드를 가집니다.
+
+    // 1. 할것 객체
+    class Todo {
+      constructor(item, finished) {
+        //인스턴스에 연결시켜야함(this) 인스턴스에 item,finished 프로퍼티가 생성됨.
+        this.item = item;
+        this.finished = finished;
+      }
+      changeState() {
+        //finished의 상태를 전환해야함. t -> f / f -> t 함수실행시
+        this.finished = !this.finished;
+      }
+    }
+
+
+    // 2. 더하고, 그 리스트를 보여주고, 안된 과제 숫자 알려주고
+    class TodoManager {
+      constructor() {
+        this.todoList = [];
+      }
+
+      addItem(item, finished = false) { //인자값 초기화 가능하다. 기본값을 설정했기 때문에 두번째 인자는 넣지 않아도된다. 그럼 undefined가 들어간다.
+        //이안에서 Todo의 인스턴스를 생성한다!
+        const todo = new Todo(item, finished); //할일과 완료유무를 프로퍼티로 갖는 인스턴스
+        this.todoList.push(todo); //배열에 todo라는 인스턴스 자체를 넣었다.. 일과 완료유무를 넣었다..
+      };
+
+      getItems() {
+        return this.todoList;
+      };
+      //아직 안 끝난 일들의 갯수만 반환해주는 메서드, todoList에서 finished가 false인 것들만 세어줘야함
+
+      getLeftTodoCount() {
+        //방법 1. reduce + if문으로 false 요소들을 total에 ++해줘
+        //curret는 배열의 원소(todo)하나하나
+        this.todoList.reduce((total, current) => {
+          if (current.finished === false) {
+            return ++total;
+          } else {
+            return total; //treu면은 굳이 빼거나 더해주지 말고 쌓인 total값만 보여줘
+          }
+        }, 0);
+
+        //방법 2. 방법1 삼항
+        // return this.todoList.reduce((total, current) => current.finishied === false ? ++total : total, 0);
+
+        // 방법3. filter로 false 걸러
+        // return this.todoList.filter((item) => item.finishied === false).length;
+
+        // 흥미로운 방법
+        // getLeftTodoCount() {
+        //   return this.todoList.reduce((a, b) => a + !b.finished, 0)
+        // }
+      };
+    }
+
+  </script>
+</body>
+
+</html>

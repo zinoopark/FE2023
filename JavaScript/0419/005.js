@@ -53,8 +53,9 @@ const robot2 = new FoodPicker(["짜장면", "김치찌개", "김치찌개"]);
 //부모 클래스의 프로퍼티를 상속받기 위해 super 함수를 사용합니다. 이때 super는 부모 생성자를 참조합니다.
 
 class BabyRobot extends Robot {
+  //상속받을 클래스 Baby~ Robot은 상속받을 부모 생성자 함수
   constructor(name) {
-    super(name); //프로퍼티를 상속받을 때
+    super(name); //프로퍼티, 메서드를 상속받을 때 super입력, 서브 클래스에 생성자 함수가 없다면 super 함수가 자동으로 호출되어 부모 클래스의 프로퍼티를 상속 받게 합니다.
     this.ownName = "아이크";
   }
 
@@ -64,5 +65,4 @@ class BabyRobot extends Robot {
     console.log("Suceeding you, Father!");
   }
 }
-
 const babyrobot = new BabyRobot();

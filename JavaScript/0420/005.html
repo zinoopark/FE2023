@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: crimson;
+      /* transition: .3s; */
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const box = document.querySelector('div');
+    let pos = 0;
+    let keys = []; //무슨키를 눌렀는지 저장하는 객체
+
+    function move(event) { //사용자가 키를 눌렀을때 실행
+      keys[event.key] = true;
+      console.log(keys);
+    }
+    function stop(event) { //사용자가 키에서 손을 땠을 때 실행
+      keys[event.key] = false;
+      // console.log(keys);
+
+    }
+    //결국 실시간으로 오직 누르는 키에만 true가 입력되고 이전에 입력됐던 것들은 다 false가 된다.
+
+
+    document.addEventListener('keydown', move); //move 펑션과 연결되어 키다운이 일어났을 때, keys객체에 입력된 키값을 true로 만들어줌.
+    document.addEventListener('keyup', stop);
+    // function move(event) {
+    //   const keyName = event.key; // 들어오는 키값을 확인가능
+    //   console.log(keyName)
+
+    //   if (keyName === 'ArrowRight') {
+    //     pos += 5; //오른화살표 클릭하면 0부터 5씩 커진다.
+    //     box.style.transform = `translateX(${pos}px)`;//위치 스타일 조정, 한번 눌렀을 때 얼마나 움직일지 기준이 되는 값을 선정해야한다.
+    //   } else if (keyName === 'ArrowLeft') {
+    //     pos -= 5;
+    //     box.style.transform = `translateX(${pos}px)`;
+    //   }
+    // };
+
+    function play() {
+      if (keys.ArrowRight) { //조건문 없으면 재귀함수가 되어버렷. // 재귀가 무한으로 돌아가는데, 조건문에서 걸려가지고 오른쪽 키냐 왼쪽 키냐를 판별해서 포지션 값이 변화가 됨.
+        pos += 5;
+
+      } else if (keys.ArrowLeft) {
+        pos -= 5;
+      }
+      // if (pos < 0) { // 왼쪽으로 벗어나지 않도록 하는 조건
+      //   pos = 0;
+      // } else if (pos > window.innerWidth - box.clientWidth) { // 오른쪽으로 벗어나지 않도록 하는 조건
+      //   pos = window.innerWidth - box.clientWidth;
+      // }
+
+      box.style.transform = `translateX(${pos}px)`;
+
+      requestAnimationFrame(play); //요소의 변화가 있을때, 이 play함수가 실행될 것을 미리 알려줌.
+    }
+    play();
+
+    // function play() {
+    //   switch (true) {
+    //     case keys.ArrowRight:
+    //       pos += 5;
+    //       box.style.transform = `translateX(${pos}px)`;
+    //       break;
+    //     case keys.ArrowLeft:
+    //       pos -= 5;
+    //       box.style.transform = `translateX(${pos}px)`;
+    //       break;
+    //     case keys.ArrowUp:
+    //       pos += 5;
+    //       box.style.transform = `translateY(${pos}px)`;
+    //       break;
+    //     case keys.ArrowDown:
+    //       pos -= 5;
+    //       box.style.transform = `translateY(${pos}px)`;
+    //       break;
+    //   }
+    // }
+    // play();
+
+  </script>
+</body>
+
+</html>

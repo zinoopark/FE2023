@@ -68,11 +68,11 @@ const 오브젝트 = new 생성자()
 
 
     // 문제4 - 1) 이벤트리스너 내부 콜백함수에서의 this
-    < button id = '버튼' > 버튼</ >
+    <button id = '버튼' > 버튼</button>
 
         document.getElementById('버튼').addEventListener('click', function (e) {
-            console.log(this)
-            console.log(e.currentTarget)
+            console.log(this) //일반함수 일땐 버튼, 화살표 함수일 땐 window 
+            console.log(e.currentTarget) //일반함수 일땐 버튼, 화살표 함수일 땐 버튼
         })
 
 
@@ -80,7 +80,7 @@ const 오브젝트 = new 생성자()
 document.getElementById('버튼').addEventListener('click', function (e) {
     let arr = [1, 2, 3]
     arr.forEach(function () {
-        console.log(this)
+        console.log(this) //window 3번
     })
 })
 
@@ -89,8 +89,8 @@ document.getElementById('버튼').addEventListener('click', function (e) {
 var 오브젝트 = {
     이름: ['김', '이', '박'],
     함수: function () {
-        console.log(this)
-        오브젝트.이름.forEach(function () { console.log(this) })
+        console.log(this) //객체
+        오브젝트.이름.forEach(function () { console.log(this) }) // window 3번
     }
 }
 오브젝트.함수() // 어떤 결과가 나올까?
@@ -100,8 +100,8 @@ var 오브젝트 = {
 const 오브젝트 = {
     이름: ['김', '이', '박'],
     함수: function () {
-        console.log(this)
-        오브젝트.이름.forEach(() => { console.log(this) })
+        console.log(this) //객체
+        오브젝트.이름.forEach(() => { console.log(this) }) //객체 3번 ?? 뭐지이거
     }
 }
 오브젝트.함수()

@@ -184,10 +184,12 @@ function solution(order) {
 // 4번 문제
 // 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120913
 // 아래와 같이 풀 수 있지만 정규표현식을 사용하면 더 간단해집니다.
+// "abc1Addfggg4556b"	, n=6 일경우 
 function solution(my_str, n) {
   let result = []
-  for (let i = 0; i < my_str.length; i += n) result.push(my_str.slice(i, i + n))
-  return result
+  for (let i = 0; i < my_str.length; i += n); //i는 0부터 시작해서 그 다음은 n=6이라고 그 다음 i=6 아래 slice는 slice(6,12)
+  result.push(my_str.slice(i, i + n)); //인덱스는 첫번째가 0이니까 i+n을 해주면 n=6이라고 해도 6개씩 잘린다.
+  return result;
 }
 
 // [0-9][0-9][0-9][0-9] - [0-9][0-9][0-9][0-9]
@@ -208,7 +210,7 @@ function solution(my_str, n) {
 
 // 정답
 function solution(my_str, n) {
-  let reg = new RegExp(`.{1,${n}}`, 'g') //1개 이상의 문자도 포함.. n이 6이라고하면 1, 이 없으면 6개인 것들만 보여줌
+  let reg = new RegExp(`.{1,${n}}`, 'g') //1개 이상의 문자도 포함.. n이 6이라고하면하면 1개이상 6개이하, 1 이 없으면 6개인 것들만 보여줌 이 범위를 설정해주는 이유는 n개 씩 짜르다가 뒤에 n가 이하인 열이 남아버리면 그 열까지 포함해주기 위함임. 예를 들어 18개길이의 문자열에서 n이 4로 주어지면 뒤에 2개가 남는데, 그것까지 반환해주기 위해선 최소갯수 1을 설정해준 것임. n은 1이상이라고 조건에 제시되어있음,, '.'은 어느문자든 임의의 한글자를 선택 .{1,4}라면 문자 1개이상 ~4개이하
   return my_str.match(reg)
 }
 
