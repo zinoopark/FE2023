@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+
+<body>
+    <script>
+        //XHR과 fetch의 가장 큰 차이점은 XMLHttpRequest 가 생성하는 인스턴스는 통신의 기능을 수행하는 XMLHttpRequest 객체를 반환했지만 fetch는 인스턴스를 만들지 않고, 대신 ‘약속’을 반환한다는 것입니다.
+        // Promise?
+        // 커피를 주문하는 프로미스 객체를 생성합니다. 생성자에는 약속을 지키기 위한 resolve와, 약속을 지키지 못했을 때를 대비한 reject 두 가지를 인자로 전달합니다.
+
+        // Resolv(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+        // Reject(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+        // Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태 (실수하지 않는 한 거의 나올 수 없는 상태)
+
+        const orderCoffee = new Promise((resolve, reject) => { //executer 실행자
+
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'orderCoffee.txt');
+            requestObj.onreadystatechange = () => {
+                if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                    const result = requestObj.responseText;
+
+                    // resolve 메소드가 실행되면 then 메소드가 자동으로 호출됩니다.
+                    resolve(result); //fulfilled..되는 것, 오늘의 커피가 나왔습니다! 약속이 이루어졌습니다.
+
+                    // resolve 메소드 호출이 없는 상태에서 reject 메소드가 실행되거나 통신에 문제가 발생하면 catch 메소드가 자동으로 호출됩니다.
+                    // reject(result); // Error: 커피주문이 정상적으로 이뤄지지 않았습니다.
+                }
+            };
+            requestObj.send();
+
+        });
+
+        // 이 부분에 주목해주세요. then 메소드를 사용하면 비동기 코드를 마치 동기적인 코드처럼 작성할 수 있습니다. 앞에서 작성한 XHR 코드와 비교해보는것도 좋습니다. 
+
+        // resolve 메소드가 실행될때 전달된 인자는 then메소드의 콜백함수의 인자로 전달됩니다.
+        orderCoffee.then((asyncResult) => {  // resolve에 대한 result, 서버와 클라이언트가 통신한 결과물
+            console.log(asyncResult);
+            console.log('약속이 이루어졌습니다.');
+            return asyncResult;
+        }).catch((error) => { // then 메소드는 프라미스 객체를 반환하기 때문에 catch 메소드를 이어서 쓰는것이 가능합니다. reject가 실행되면 catch가 실행
+            console.log(new Error('커피주문이 정상적으로 이뤄지지 않았습니다.'));
+        })
+    </script>
+</body>
+
+</html>

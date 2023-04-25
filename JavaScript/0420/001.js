@@ -30,6 +30,9 @@ class Fire extends Sausage {
   }
 }
 
+const fireSausage = new Fire("소고기", "파", "불맛");
+
+
 class FiresSausage extends Sausage {
   constructor(el1, el2, el3) {
     // this.inside1 = el1;

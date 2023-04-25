@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html>
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>title name</title>
+  <title>시각이 찍히는 메모장</title>
 </head>
 
 <body>
-
-  <header>
-    <div class="container">
-      <div class="nav">
-        <h1>Flashcards</h1>
-        <div>
-          <button onclick="showCreateCardBox()">New card</button> <!-- 개별 카드 생성 -->
-          <button onclick="delFalshcards()">Dle cards</button> <!-- 카드 일괄 삭제 -->
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="create-box">
-      <h2>Create Flashcard</h2>
-      <label for="question">Qeustion</label> <!-- 질문 텍스트 창 -->
-      <textarea id="question"></textarea>
-      <label for="answer">Answer</label> <!-- 대답 텍스트 창 -->
-      <textarea id="answer"></textarea>
-      <button onclick="addFlashcard()">Save</button>
-      <button onclick="hideCreateBox()">Close</button>
-    </div>
-  </div>
-  <div class="falshcards"></div>
+  <h1>시각이 찍히는 메모장</h1>
+  <textarea id="memo"></textarea>
+  <button onclick="saveMemo()">저장</button>
+  <ul id="memoList"></ul>
+  <script>
+    function saveMemo() {
+      const memoInput = document.getElementById("memo");
+      const memoList = document.getElementById("memoList");
+      const memoText = memoInput.value;
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');; // getMonth()는 0부터 시작하므로 1을 더해줍니다.
+      const day = String(now.getDate()).padStart(2, '0');
+      const dateTimeString = now.toLocaleString();
+      const memoItem = document.createElement("li");
+      memoItem.textContent = `${year}/${month}/${day}: ${memoText}`;
+      memoList.appendChild(memoItem);
+      memoInput.value = "";
+    }
+  </script>
 </body>
 
 </html>

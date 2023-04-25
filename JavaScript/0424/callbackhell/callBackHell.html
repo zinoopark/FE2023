@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title name</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    class UserStorage {
+
+      // 유저가 등록되었는지 확인
+      searchUser(userName, password, onSuccess, onError) {
+        const xhr = new XMLHttpRequest(); //통신시작
+        xhr.open('GET', 'users.json'); // 요청 초기화
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {//받아온 데이터를 비동기적으로 처리하는 부분.. 데이터를 다 수신받고 안전한 공간..?
+            console.log(xhr.responseText); //user.json가 출력되는 것을 볼 수 있다. string형태의 JSON객체 형태
+            const result = JSON.parse(xhr.responseText).user.find((item) => {//원하는 판별 조건(함수)의 첫 번째 원소를 찾아줌
+              return item.userName === userName && item.password === password // 데이터안의 유저네임 === 유저가 입력한 유저네임판별
+            });
+
+            if (result) {
+              onSuccess(userName); //통신에 성공했을 때 실행할 함수
+            } else {
+              onError(new Error('user not found'));
+            }
+          }
+        }
+
+        xhr.send();
+      }
+
+      // 등록된 유저에 따른 인사말을 출력(greetings.json에 등록된 정보 참고)
+      sayHi(user, onSuccess, onError) { // 함수를 인자로 전달
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'greetings.json');
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            const result = JSON.parse(xhr.responseText).greetings.find((item) => {
+              return item.userName === user // 위에서 받은 user 정보
+            });
+
+            if (result) {
+              onSuccess(
+                {
+                  name: result.userName,
+                  greetings: result.greetings
+                }
+              );
+            } else {
+              onError(new Error('no greetings'));
+            }
+          }
+        }
+
+        xhr.send();
+      }
+    }
+
+    const userStorage = new UserStorage(); // 여기 아래로는 동기적으로 실행시키는 부분
+
+    const userName = prompt('이름을 입력하세요');
+    const password = prompt('비밀번호를 입력하세요');
+
+    userStorage.searchUser(
+      userName,
+      password,
+      (name) => {
+        userStorage.sayHi(
+          name,
+          (result) => {
+            alert(`당신에게 인사합니다! ${result.name}님 ${result.greetings}`);
+          },
+          (error) => {
+            console.log(error);
+          }
+        )
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+
+
+// userStorage.sayHi('wonbum');
+
+  </script>
+</body>
+
+</html>

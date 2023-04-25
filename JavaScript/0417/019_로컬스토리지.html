@@ -46,14 +46,14 @@
   </main>
   <script>
     let allMemo = JSON.parse(localStorage.getItem("allMemo"));
-    allMemo = allMemo ?? [];
+    allMemo = allMemo ?? []; //빈값이어도 에러뜨지 않고, 빈배열로 들어가도록.
     render();
 
     function saveNote() {
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;
 
-      allMemo.push({ title, content, len: allMemo.length });
+      allMemo.push({ title, content, len: allMemo.length });//여기서 allMemo의 요소값을 토대로 자동으로 length값이 계산됨. 물론 처음의 값이 0이기 때문에 나중에 +1더해서 p태그로 표현해줄 것임.
 
       localStorage.setItem("allMemo", JSON.stringify(allMemo));
       render();
@@ -61,7 +61,7 @@
 
     function render() {
       const display = document.getElementById("display");
-      display.innerHTML = "";
+      display.innerHTML = ""; //이전 display(section)에 쌓인 데이터들 지우고, 새롭게 더해주기. 이게 비활성화 되면 이전에 입력했던 메모들도 다 딸려서 올라옴. 
 
       // // 최신 게시물이 위로 올라오도록
       // for (let i = allMemo.length; i > 0 ; i--) {
@@ -78,7 +78,7 @@
         saveContent.textContent = item.content;
         saveId.textContent = item.len + 1;
         deleteMemoBtn.textContent = "삭제";
-        deleteMemoBtn.setAttribute("id", item.len);
+        deleteMemoBtn.setAttribute("id", item.len); //item은 allMemo의 요소값들.. 즉 56번째 줄의 객체 뭉치 하나하나이다.. 그 객체의 len에 접급하는 ..것
         deleteMemoBtn.setAttribute("onclick", "remove()");
 
         display.appendChild(saveId);

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title name</title>
+</head>
+
+<body>
+  <script>
+    // case.1
+    let me = { age: 30 }; //객체 자료형 = 참조 자료형 . 값 자체 X -> 값이 존재하는 메모리상의 주소를 참조 .. 즉, 이 객체에 대한 참조 카운트는: 1; 가비지 컬렉터의 시선에서 벗어나게 됨.
+    let you = me; //me에 있더 주소를 you에 할당. 참조 카운트: 2;
+
+    me = null; // 또는 undefined 이용하여 메모리 해제. 가비지 컬렉터의 수집 대상이 됨. 참조 카운트_ 1;
+    you = null; // 참조카운트: 0; 가비지 컬렉터의 수집 대상이 됨.
+
+    // case.2
+    let x = {
+      y: {
+        z: 1
+      }
+    }
+    //x가 참조하는 객체를 object1, y참조하고 있는 객체를 object2라고 가정..
+    let a = x; // object1 참조카운트 : 2 (x,a)
+    x = 1; // object1 참조카운트 : 1(a)
+
+    let b = a.y; // object2 참조카운트 : 2 (a.y, b)
+    a = 2; // object1 참조카운트 : 0, object2 참조카운트 : 1 (b)
+
+    // b가 object2 를 참조하기 때문에, object1객체는 제거되지 않습니다.
+    // object1 객체는 사용하진 않지만 불필요하게 남아있는거다. 이러한 상황을 메모리 누수라고 합니다.
+
+    // case.3 클로저
+    function outer() {
+      let privateVal = ['test'];
+
+      function getPrivate() {
+        return privateVal
+      }
+      return getPrivate;
+    }
+
+    const getPrivate = outer();
+    const secretVal = getPrivate();
+
+    console.log(secretVal);
+    secretVal = null;
+
+
+  </script>
+</body>
+
+</html>
