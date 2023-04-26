@@ -27,41 +27,41 @@ function createMemo(item) {
   const month = String(time.getMonth() + 1).padStart(2, "0"); // getMonth()는 0부터 시작하므로 1을 더해줍니다.
   const day = String(time.getDate()).padStart(2, "0");
 
-  // memoId.className = "a11y-hidden";
+  memoId.className = "a11y-hidden";
   memoTime.className = "memoTime";
   list.className = "memoCard";
   delMemoBtn.className = "delBtn";
-  p_content.className = "visible"; // 초기 내용 숨김 위해 클래스명 설정, 아래 토글로 on/off
+  //p_content.className = "visible"; // 초기 내용 숨김 위해 클래스명 설정, 아래 토글로 on/off
 
-  list.addEventListener("mousedown", () => {
-    p_content.classList.toggle("visible");
-  });
+  // list.addEventListener("mousedown", () => {
+  //   p_content.classList.toggle("visible");
+  // });
 
   h2_title.setAttribute(
     "style",
-    "border-bottom: 1px solid red; margin-top:30px"
+    "color:#3e3e3e; border-bottom: 1px solid #ffb347; margin-top:30px"
   );
   h2_title.textContent = item.memoTitle;
-  p_content.setAttribute("style", "color:red");
+  p_content.setAttribute("style", "color:#3e3e3e;");
   p_content.textContent = item.memoContent;
   memoId.textContent = item.leng + 1;
   delMemoBtn.setAttribute("id", item.leng); // p는 보여주는 번호이기 때문에 index[0]에 1을 더해줬고, 이것은 실제 id의 번호 속성
   list.classList.add(item.leng); // p는 보여주는 번호이기 때문에 index[0]에 1을 더해줬고, 이것은 실제 id의 번호 속성
   delMemoBtn.setAttribute("style", "");
   delMemoBtn.setAttribute("onclick", "delMemo()");
-  delMemoBtn.textContent = "삭제";
+  // delMemoBtn.textContent = "삭제";
   memoTime.textContent = `${year}/${month}/${day}`; //시간 표기
 
-  const flexDiv = document.createElement("div");
-  flexDiv.setAttribute(
-    "style",
-    "display:flex; justify-content: space-between;"
-  );
+  // const flexDiv = document.createElement("div");
+  // flexDiv.setAttribute(
+  //   "style",
+  //   "display:flex; justify-content: space-between;"
+  // );
   memoContainer.appendChild(list);
 
-  list.appendChild(flexDiv);
-  flexDiv.appendChild(memoId);
-  flexDiv.appendChild(delMemoBtn);
+  // list.appendChild(flexDiv);
+  list.appendChild(memoId);
+  list.appendChild(delMemoBtn);
   list.appendChild(h2_title);
   list.appendChild(p_content);
   list.appendChild(memoTime);
@@ -117,10 +117,10 @@ function delMemo() {
 
 const scrollBtn = document.createElement("button");
 scrollBtn.innerHTML = "&darr;";
-scrollBtn.setAttribute("class", "bottomBtn");
+scrollBtn.setAttribute("class", "scrollDown");
 document.body.appendChild(scrollBtn);
-const bottomBtn = document.querySelector(".bottomBtn");
-bottomBtn.addEventListener("click", function () {
+const scrollDown = document.querySelector(".scrollDown");
+scrollDown.addEventListener("click", function () {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 });
 
